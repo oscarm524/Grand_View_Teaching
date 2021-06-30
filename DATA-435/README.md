@@ -1,5 +1,18 @@
-# DATA-445
-In this repository, I store all the code related to DATA-445
+# DATA-435
+In this repository, I store all the code presented in the lecture notes of DATA-435.
+
+## Chapter 1 
+
+## Chapter 2 
 
 ## Chapter 3 
-In this chapter, we review the most common cross-validation procedures.
+
+## Chapter 4 
+
+## Chapter 5 
+
+## Chapter 6 
+
+## Chapter 7
+
+## Chapter 8

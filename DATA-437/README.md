@@ -1,4 +1,5 @@
-# DATA-437
+# DATA-437: Sports Analytics
+
 In this repository, I store all the code presented in the lecture notes of DATA-437.
 
 ## Chapter 1 

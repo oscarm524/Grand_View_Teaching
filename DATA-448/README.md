@@ -1,4 +1,5 @@
-# DATA-446
+# DATA-448: Predictive Analytics
+
 In this repository, I store all the code presendted in the lecture notes of DATA-446.
 
 ## Chapter 1 

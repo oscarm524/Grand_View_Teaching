@@ -1,4 +1,5 @@
-# DATA-435
+# DATA-435: Marketing Analytics
+
 In this repository, I store all the code presented in the lecture notes of DATA-435.
 
 ## Chapter 1 

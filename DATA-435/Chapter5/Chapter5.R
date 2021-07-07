@@ -30,7 +30,6 @@ SVM_md = svm(Churn ~ Age + EstimatedSalary + CreditScore + Balance + NumOfProduc
 
 predict(SVM_md, newdata = data.frame(Age = 50, EstimatedSalary = 100000, CreditScore = 600, Balance = 100000, NumOfProducts = 2), probability = T)
 
-
 ## Loading all the needed packages
 library(randomForest)
 library(e1071)

@@ -1,4 +1,5 @@
-# DATA-445
+# DATA-445: Applied Machine Learning
+
 In this repository, I store all the code presented in the lecture notes of DATA-445.
 
 ## Chapter 1 

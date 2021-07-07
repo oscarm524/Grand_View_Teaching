@@ -1,4 +1,5 @@
-# DATA-433
+# DATA-433: Finance Analytics
+
 In this repository, I store all the code presented in the lecture notes of DATA-433.
 
 ## Chapter 1

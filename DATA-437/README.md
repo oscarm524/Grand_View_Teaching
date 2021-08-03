@@ -3,6 +3,7 @@
 In this repository, I store all the code presented in the lecture notes of DATA-437.
 
 ## Chapter 1 
+This chapter is an introduction to sports analytics. We started by defining what sports analytics is. Then, we briefly discuss how technology is being used in sports. Finally, we discussed how analytics is applied in sports. 
 
 ## Chapter 2
 

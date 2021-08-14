@@ -44,7 +44,7 @@ This chapter covers resampling methods, which is a crucial topic in machine lear
 
 ## Chapter 6: Fundamentals of Ensemble Learning
 
-## Chapter 7
+## Chapter 7: Clustering
 
 ## Chapter 8
 

@@ -40,6 +40,12 @@ This chapter covers resampling methods, which is a crucial topic in machine lear
 
 ## Chapter 4: Linear Regularization
 
+This chapter discusses two popular shrinkage approaches: Ridge regression and LASSO. These approaches involve fitting a model involving all input variables and a target variable. However, the estimated coefficients are shrunken towards zero relative to the least squares estimates. The following topics are covered:
+
+    - Ridge regression
+    - LASSO
+    - Selecting a good tuning parameter Lambda
+
 ## Chapter 5: Nonlinear Models
 
 ## Chapter 6: Fundamentals of Ensemble Learning

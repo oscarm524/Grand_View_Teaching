@@ -4,7 +4,7 @@ In this repository, I store all the code presented in the lecture notes of DATA-
 
 ## Chapter 1 
 
-This is an introductory chapter to machine learning. The following terms are defined:
+This is an introductory chapter to machine learning field. The following terms are defined:
 
     - What is machine learning?
     - How does machine learning work?
@@ -22,6 +22,8 @@ This is an introductory chapter to machine learning. The following terms are def
 
 
 ## Chapter 2
+
+This is an introductory chapter to AWS SageMaker. 
 
 ## Chapter 3
 

@@ -6,6 +6,19 @@ In this repository, I store all the code presented in the lecture notes of DATA-
 
 This is an introductory chapter to machine learning. The following terms are defined:
 
+    - What is machine learning?
+    - How does machine learning work?
+    - What can go wrong with machine learning?
+    - Real-world applications of machine learning
+    - Types of machine learning:
+        - Supervised learning
+        - Unsupervised learning
+        - Semi-supervised learning
+        - Reinforcement learning
+        - Batch learning
+        - Incremental learning
+        - Intance-based learning
+        - Model-based learning
 
 
 ## Chapter 2

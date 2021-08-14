@@ -27,6 +27,8 @@ This is an introductory chapter to AWS SageMaker. This chapter explore the main 
 
 ## Chapter 3
 
+This chapter covers resampling methods, which is a crucial topic in machine learning. 
+
 ## Chapter 4
 
 ## Chapter 5

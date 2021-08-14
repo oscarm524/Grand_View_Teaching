@@ -2,7 +2,7 @@
 
 In this repository, I store all the code presented in the lecture notes of DATA-445.
 
-## Chapter 1 
+## Chapter 1: Introduction to machine learning
 
 This is an introductory chapter to machine learning field. The following terms are defined:
 

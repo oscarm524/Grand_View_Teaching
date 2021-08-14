@@ -25,7 +25,7 @@ This is an introductory chapter to machine learning field. The following terms a
 
 This is an introductory chapter to AWS SageMaker. This chapter explore the main capabilities of SageMaker: building, training, and deploying of machine learning model. It also shows step-by-step how to set up an SageMaker notebook instance.
 
-## Chapter 3
+## Chapter 3: Resampling Methods
 
 This chapter covers resampling methods, which is a crucial topic in machine learning. Also, standard methodology used to evaluate classifiers and regressor are discussed as well. The following topics are covered:
 

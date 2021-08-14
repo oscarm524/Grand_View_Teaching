@@ -27,7 +27,16 @@ This is an introductory chapter to AWS SageMaker. This chapter explore the main 
 
 ## Chapter 3
 
-This chapter covers resampling methods, which is a crucial topic in machine learning. 
+This chapter covers resampling methods, which is a crucial topic in machine learning. Also, standard methodology used to evaluate classifiers and regressor are discussed as well. The following topics are covered:
+
+    - Model assessment 
+        - Evaluating performance of classifiers
+        - Evaluating performance of regressors
+
+    - Cross-validation
+        - The validation set approach
+        - Leave-one-out cross-validation
+        - k-fold cross-validation
 
 ## Chapter 4
 

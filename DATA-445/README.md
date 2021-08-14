@@ -44,7 +44,7 @@ This chapter discusses two popular shrinkage approaches: Ridge regression and LA
 
     - Ridge regression
     - LASSO
-    - Selecting a good tuning parameter Lambda
+    - Selecting a good tuning parameter &Lambda
 
 ## Chapter 5: Nonlinear Models
 

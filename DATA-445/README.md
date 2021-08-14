@@ -40,7 +40,7 @@ This chapter covers resampling methods, which is a crucial topic in machine lear
 
 ## Chapter 4: Linear Regularization
 
-## Chapter 5
+## Chapter 5: Nonlinear Models
 
 ## Chapter 6
 

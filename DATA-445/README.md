@@ -38,7 +38,7 @@ This chapter covers resampling methods, which is a crucial topic in machine lear
         - Leave-one-out cross-validation
         - k-fold cross-validation
 
-## Chapter 4
+## Chapter 4: Linear Regularization
 
 ## Chapter 5
 

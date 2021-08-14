@@ -21,7 +21,7 @@ This is an introductory chapter to machine learning field. The following terms a
         - Model-based learning
 
 
-## Chapter 2
+## Chapter 2: Introduction to Amazon SageMaker
 
 This is an introductory chapter to AWS SageMaker. This chapter explore the main capabilities of SageMaker: building, training, and deploying of machine learning model. It also shows step-by-step how to set up an SageMaker notebook instance.
 

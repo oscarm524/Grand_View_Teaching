@@ -42,7 +42,7 @@ This chapter covers resampling methods, which is a crucial topic in machine lear
 
 ## Chapter 5: Nonlinear Models
 
-## Chapter 6
+## Chapter 6: Fundamentals of Ensemble Learning
 
 ## Chapter 7
 

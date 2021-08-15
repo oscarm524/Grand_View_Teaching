@@ -34,7 +34,11 @@ This chapter provides a high-level of what data analytics is. The following topi
 
 ## Chapter 2: Data Analytics Solution to Real-Life Problems
 
+This chapter provides a recipe for data professionals that want to use analytics methodoloy and tools to answer specific business problems. The following topics are covered: 
 
+    - Converting business problems into analytics solutions
+    - Assessing feasibility 
+    - Designing an analytics plan
 
 
 ## Chapter 3

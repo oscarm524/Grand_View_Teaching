@@ -68,4 +68,16 @@ Data exploration is a key component of analytics because it allows practitioners
 
 ## Chapter 5: Fitting Model to Data
 
+    - Linear regression
+        - Simple linear regression
+        - Multiple linear regression
+        - Linear regression with categorical variables
+    - Classification
+        - Logistic regression
+    - Tree-based methods
+        - Decision trees
+        - Bagging
+        - Random forest
+        - Boosting
+
 ## Chapter 6: Intro to Predictive Modeling

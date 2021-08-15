@@ -41,7 +41,9 @@ This chapter provides a recipe for data professionals that want to use analytics
     - Designing an analytics plan
 
 
-## Chapter 3
+## Chapter 3: Data Exploration
+
+
 
 ## Chapter 4
 

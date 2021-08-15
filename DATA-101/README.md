@@ -58,6 +58,8 @@ Data exploration is a key component of analytics because it allows practitioners
 
 ## Chapter 4: Similarity, Neighbors and Clustering
 
+Several data analytics methodologies rely on similarity. If two things (people, products, etc) are similar in some way, they often share other characteristics as well. Some data analytics procedures are based on grouping similar things and conducting analysis in each of the groups. In this chapter, we will learn about similarity and how to apply it in different tasks. The following topics are covered:
+
     - Similarity and distance
         - Euclidean distance
     - Nearest neighbors

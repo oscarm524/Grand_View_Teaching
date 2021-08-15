@@ -43,6 +43,17 @@ This chapter provides a recipe for data professionals that want to use analytics
 
 ## Chapter 3: Data Exploration
 
+Data exploration is a key component of analytics because it allows practitioners to have a good understanding of the data and its quality. The following topics are covered:
+
+    - The data quality report
+        - Central tendency
+        - Variation and shape
+        - Skewness
+        - Exploring numerical data
+        - Organizing variables
+        - Data visualization
+    - Identifying data quality issues
+    - The data quality report summary
 
 
 ## Chapter 4

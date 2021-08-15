@@ -56,7 +56,7 @@ Data exploration is a key component of analytics because it allows practitioners
     - The data quality report summary
 
 
-## Chapter 4
+## Chapter 4: Similarity, Neighbors and Clustering
 
 ## Chapter 5
 

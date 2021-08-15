@@ -81,3 +81,13 @@ Data exploration is a key component of analytics because it allows practitioners
         - Boosting
 
 ## Chapter 6: Intro to Predictive Modeling
+
+    - Variable selection
+        - Backward selection
+        - Forward selection
+        - Hybrid selection
+    - Model evaluation 
+    - Hyper-parameter tuning 
+        - Hyper-parameter tuning of k-nn
+        - Hyper-parameter tuning of random forest
+        - Hyper-parameter tuning of boosting

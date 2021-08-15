@@ -58,6 +58,6 @@ Data exploration is a key component of analytics because it allows practitioners
 
 ## Chapter 4: Similarity, Neighbors and Clustering
 
-## Chapter 5
+## Chapter 5: Fitting Model to Data
 
 ## Chapter 6

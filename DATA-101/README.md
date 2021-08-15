@@ -4,7 +4,21 @@ In this repository, I store all the code presented in the lecture notes of DATA-
 
 ## Chapter 1: Data Analytics Overview
 
+This chapter provides a high-level of what data analytics is. The following topics are covered:
 
+    - The basics of data analytics
+    - Key terms to know
+        - Business intelligence
+        - Big data
+        - Data mining
+        - Text mining
+        - Machine learning
+        - Predictive modeling
+        - Deep learning
+        - Artificial intelligence
+    - Data analytics process
+        - Business understanding
+        
 
 ## Chapter 2
 

@@ -2,7 +2,9 @@
 
 In this repository, I store all the code presented in the lecture notes of DATA-101.
 
-## Chapter 1
+## Chapter 1: Data Analytics Overview
+
+
 
 ## Chapter 2
 

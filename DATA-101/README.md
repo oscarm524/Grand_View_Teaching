@@ -70,6 +70,8 @@ Several data analytics methodologies rely on similarity. If two things (people, 
 
 ## Chapter 5: Fitting Model to Data
 
+Fitting a model to a data set involves finding a model of the target variable in terms of the features and/or other descriptive attributes of the data. This process requires the specification of the structure of the model, which may or may not depend on parameters. If the model depends on numeric parameters, then they need to be estimated using data and a specific procedure that most of the time requires the optimization of an objective function. This approach is called parametric modeling. The most common parametric model are linear models. On the other hand, if the model does not depend on any numeric parameter, they are known as non-parametric models. An example of a non-parametric model is k-nearest neighbors algorithm that makes predictions based on the k most similar training observation for a new observation. In this chapter, we will learn about some common parametric and non-parametric models. The following topics are covered:
+
     - Linear regression
         - Simple linear regression
         - Multiple linear regression

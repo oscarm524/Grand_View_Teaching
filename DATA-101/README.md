@@ -58,6 +58,14 @@ Data exploration is a key component of analytics because it allows practitioners
 
 ## Chapter 4: Similarity, Neighbors and Clustering
 
+    - Similarity and distance
+        - Euclidean distance
+    - Nearest neighbors
+        - k-nn algorithm
+    - Clustering
+        - k-means 
+        - Hierarchical clustering
+
 ## Chapter 5: Fitting Model to Data
 
 ## Chapter 6: Intro to Predictive Modeling

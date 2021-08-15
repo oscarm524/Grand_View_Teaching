@@ -86,6 +86,8 @@ Fitting a model to a data set involves finding a model of the target variable in
 
 ## Chapter 6: Intro to Predictive Modeling
 
+We usually make decision based on information. In some cases we have tangible, objective data, such as the morning traffic or weather report. Other times we use intuition and experience like "I should avoid the bridge this morning because it usually gets bogged down when it snows" or "I should wear a big coat today because it will snow." In either case, we are predicting future events given the information and experience we currently have, and we are making decisions based on those predictions. Predictive modeling has been widely applied in many fields over the last two decades and examples can be found everywhere. The following topics are covered:
+
     - Variable selection
         - Backward selection
         - Forward selection

@@ -60,4 +60,4 @@ Data exploration is a key component of analytics because it allows practitioners
 
 ## Chapter 5: Fitting Model to Data
 
-## Chapter 6
+## Chapter 6: Intro to Predictive Modeling

@@ -18,6 +18,18 @@ This chapter provides a high-level of what data analytics is. The following topi
         - Artificial intelligence
     - Data analytics process
         - Business understanding
+        - Data understanding
+        - Data preparation
+        - Modeling 
+        - Evaluation
+        - Deployment
+    - Data analytics types:
+        - Descriptive analytics
+        - Diagnostic analytics
+        - Predictive analytics
+        - Prescriptive analytics
+    - Benefits of data analytics
+    - Risks of data analytics
         
 
 ## Chapter 2

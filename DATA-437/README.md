@@ -16,7 +16,7 @@ This chapter is an introduction to sports analytics. We started by defining what
         - Player valuation & development 
         - Pricing
 
-## Chapter 2: 
+## Chapter 2: Describing and Sumarizing Sports Data
 
 ## Chapter 3
 

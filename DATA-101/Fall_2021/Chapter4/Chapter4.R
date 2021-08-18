@@ -89,3 +89,26 @@ predictions = predict(three_nearest_neighbors, autos_X_test)
 ## Here we visualize the actuals vs predictions
 plot(autos_Y_test, predictions, xlab = 'Actual Average Mileage', ylab = 'Predicted Average Mileage', pch = 16, col = 'blue')
 grid() 
+
+
+################
+## Clustering ##
+################
+
+## Here we read the data into R
+iris = read.csv(file = 'iris_data.csv')
+
+## Let's normalize the data (z-score standardization)
+normalize = function(x){
+	return((x - mean(x)) / sd(x))
+}
+
+## Here we normalize the features
+features = iris[, 1:4]
+features_std = data.frame(lapply(features, normalize))
+
+## Here we cluster the data into three clusters
+iris_three_cluster = kmeans(features_std, centers = 3, nstart = 20)
+iris_three_cluster
+
+

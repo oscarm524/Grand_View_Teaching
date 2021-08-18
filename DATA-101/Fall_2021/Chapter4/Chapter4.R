@@ -112,3 +112,9 @@ iris_three_cluster = kmeans(features_std, centers = 3, nstart = 20)
 iris_three_cluster
 
 
+#############################
+## Hierarchical clustering ##
+#############################
+
+hc_complete = hclust(dist(features_std, method = 'euclidean'), method = 'complete')
+plot(hc_complete)

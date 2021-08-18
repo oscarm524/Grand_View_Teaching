@@ -10,9 +10,9 @@ v = c(40, 10, 1)
 sqrt(sum((u - v)^2))
 
 
-##########
-## k-nn ##
-##########
+##########################
+## k-NN: Classification ##
+##########################
 
 ## Here we read the data into R
 breast_cancer = read.csv(file = 'wisconsin_breast_cancer.csv')
@@ -46,3 +46,46 @@ two_nearest_neighbors = knn(train = breast_cancer_train[,-1], test = breast_canc
 ## Here we compare the actuals against predictions
 table(two_nearest_neighbors, breast_cancer_test[, 1])
 
+
+######################
+## k-NN: Regression ##
+######################
+
+## Here we read the data 
+autos = read.csv(file = 'autos.csv')
+
+## Here we select the variables of interest
+## autos_X represents number of cylinders and horsepower 
+## autos_Y average mileage
+autos_X = autos[,7:8]
+autos_Y = autos[,9]
+
+## Here we normalize the data (0-1 transformation)
+
+## First we need to create a function that transform a variable to 0-1 range
+normalize_0_1 = function(x){
+	return((x - min(x)) / (max(x) - min(x)))
+}
+
+## Here we normalize the inputs
+autos_X = data.frame(lapply(autos_X, normalize_0_1))
+
+## Here we split the data into training and testin
+autos_X_train = autos_X[0:50,]
+autos_Y_train = autos_Y[0:50]
+
+autos_X_test = autos_X[51:61,]
+autos_Y_test = autos_Y[51:61]
+
+## First we load the caret library
+library(caret)
+
+## Here we build the three nearest neighbors regressor
+three_nearest_neighbors = knnreg(autos_X_train, autos_Y_train, k = 3)
+
+## Here we predict on the testing data 
+predictions = predict(three_nearest_neighbors, autos_X_test)
+
+## Here we visualize the actuals vs predictions
+plot(autos_Y_test, predictions, xlab = 'Actual Average Mileage', ylab = 'Predicted Average Mileage', pch = 16, col = 'blue')
+grid() 

@@ -128,8 +128,52 @@ summary(md)
 Default = read.csv(file = 'Default.csv')
 
 ## Here we fit the logistic model
-md = glm(default ~ balance + income + student, data = Default, 
-         family = 'binomial')
+md = glm(default ~ balance + income + student, data = Default, family = 'binomial')
 
 ## Here we print the model summary
 summary(md)
+
+
+####################
+## Decision Trees ##
+####################
+
+## Here we read the data 
+Default = read.csv(file = 'Default.csv')
+
+## Here we load the rpart library
+library(rpart)
+
+## Here we fit the tree
+tree.md = rpart(default ~ balance + income + student, data = Default)
+
+## Here we visualize the tree
+plot(tree.md, uniform = T, margin = 0.1)
+text(tree.md, use.n = T, all = T, cex = 0.8)
+
+## Here we predict the probability of default for balance = 1500
+## income = 35000 and student = No
+predict(tree.md, 
+        newdata = data.frame(balance = 1500, income = 35000, student = 'No'), 
+        type = 'prob')
+
+
+###################
+## Random Forest ##
+###################
+
+## Here we read the data 
+Default = read.csv(file = 'Default.csv')
+
+## Here we load the randomForest library
+library(randomForest)
+
+## Here we fit the random forest to the data
+rf.md = randomForest(default ~ balance + income + student, data = Default)
+
+## Here we predict the probability of default for balance = 1500
+## income = 35000 and student = No
+predict(rf.md, 
+        newdata = data.frame(balance = 1500, income = 35000, 
+                             student = factor('No', levels = c('No', 'Yes')), 
+        type = 'prob')

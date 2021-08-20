@@ -76,3 +76,60 @@ md = lm(Sales ~ TV + Radio + Newspaper, data = advertising)
 
 ## Here we print the model summary results
 summary(md)
+
+
+###########################################
+## Linear regression with dummy variable ##
+###########################################
+
+## Here we read the data
+birth = read.csv(file = 'birth.txt', sep = '')
+
+## Here we fit the linear model
+md = lm(Wgt ~ Gest + Smoke, data = birth)
+
+## Here we print the model summary 
+summary(md)
+
+
+#########################
+## Logistic Regression ##
+#########################
+
+## Here we read the data 
+Default = read.csv(file = 'Default.csv')
+
+## Here we fit the logistic model
+md = glm(default ~ balance, data = Default, family = 'binomial')
+
+## Here we print the model summary
+summary(md)
+
+
+#############################################
+## Logistic Regression with dummy variable ##
+#############################################
+
+## Here we read the data 
+Default = read.csv(file = 'Default.csv')
+
+## Here we fit the logistic model
+md = glm(default ~ student, data = Default, family = 'binomial')
+
+## Here we print the model summary
+summary(md)
+
+
+##################################
+## Multiple Logistic Regression ##
+##################################
+
+## Here we read the data 
+Default = read.csv(file = 'Default.csv')
+
+## Here we fit the logistic model
+md = glm(default ~ balance + income + student, data = Default, 
+         family = 'binomial')
+
+## Here we print the model summary
+summary(md)

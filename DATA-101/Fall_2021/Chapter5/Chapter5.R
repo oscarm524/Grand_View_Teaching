@@ -173,7 +173,28 @@ rf.md = randomForest(default ~ balance + income + student, data = Default)
 
 ## Here we predict the probability of default for balance = 1500
 ## income = 35000 and student = No
-predict(rf.md, 
-        newdata = data.frame(balance = 1500, income = 35000, 
-                             student = factor('No', levels = c('No', 'Yes')), 
-        type = 'prob')
+predict(rf.md, newdata = data.frame(balance = 1500, income = 35000, student = factor('No', levels = c('No', 'Yes')), type = 'prob')
+
+
+#######################
+## Gradient Boosting ##
+#######################
+        
+## Here we read the data 
+Default = read.csv(file = 'Default.csv')
+
+## Here we load the gbm library
+library(gbm)
+
+## Here we change default from label to 0-1 coding 
+Default$default = ifelse(Default$default == 'No', 0, 1)
+
+## Here we fit the boosted classification tree
+gbm.md = gbm(default ~ balance + income + student, data = Default, 
+                       distribution = 'bernoulli', n.tree = 1000, 
+                       interaction.depth = 4)
+
+## Here we predict the probability of default for balance = 1500
+## income = 35000 and student = No
+predict(gbm.md, newdata = data.frame(balance = 1500, income = 35000, student = factor('No', levels = c('No', 'Yes')), n.tree = 1000, type = 'response')
+        

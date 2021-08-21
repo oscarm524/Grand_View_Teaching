@@ -120,3 +120,82 @@ gbm_preds = ifelse(gbm_preds < 0.5, 0, 1)
 
 ## Here we evaluate the performance of boosted classification tree
 confusionMatrix(as.factor(gbm_preds), as.factor(test$diagnosis))
+
+
+###########################
+## Evaluating Regressors ##
+###########################
+
+## Here we read the data 
+auto = read.csv(file = 'auto.csv')
+
+## Here we select the variables of interest
+auto = auto[, c('mpg', 'cylinders', 'displacement', 'horsepower', 'weight', 
+                'acceleration')]
+
+## First we need to create a function that transform a variable to 0-1 range
+normalize_0_1 = function(x){
+	return((x - min(x)) / (max(x) - min(x)))
+}
+
+## Here we standardize the predictors in the data set
+auto[, 2:6] = data.frame(lapply(auto[, 2:6], normalize_0_1))
+
+## Here we split the data into training (70%) and testing (30%)
+set.seed(5.23)
+
+n = dim(auto)[1]
+training.obs = sample(1:n, round(0.7*n))
+
+train = auto[training.obs, ]
+test = auto[-training.obs, ]
+
+## Here we train a 3-nearest neighbor in the training set
+library(caret)
+three_nearest_neighbors = knnreg(mpg ~ cylinders + displacement + horsepower + 
+                                       weight + acceleration, data = train)
+
+## Here we predict on the test set
+three_nearest_neighbors_pred = predict(three_nearest_neighbors, test)
+
+## Here we evaluate the performance of the 3-NN
+## Here we compute the RMSE
+RMSE_three_nearest_neighbors =  sqrt(mean((three_nearest_neighbors_pred - 
+                                           test$mpg)^2))
+
+## Here we compute the MAE
+MAE_three_nearest_neighbors = mean(abs(three_nearest_neighbors_pred - 
+                                       test$mpg))
+
+## Here we train the random forest model on the training set
+library(randomForest)
+rf_md = randomForest(mpg ~ cylinders + displacement + horsepower + 
+                           weight + acceleration, data = train)
+
+## Here we use the random forest model to predict on test
+rf_pred = predict(rf_md, test)
+
+## Here we evaluate the performance of the random forest
+## Here we compute the RMSE
+RMSE_rf = sqrt(mean((rf_pred - test$mpg)^2))
+
+## Here we compute the MAE
+MAE_rf = mean(abs(rf_pred - test$mpg))
+
+## Here we train the boosted model in the training set
+library(gbm)
+gbm_md = gbm(mpg ~ cylinders + displacement + horsepower + 
+                   weight + acceleration, data = train, n.tree = 500, 
+                   interaction.depth = 3, distribution = 'gaussian')
+
+## Here we use the boosted model to predict on test
+gbm_pred = predict(gbm_md, test, n.tree = 500)
+
+## Here we evaluate the performance of the boosted model
+## Here we compute the RMSE
+RMSE_gbm = sqrt(mean((gbm_pred - test$mpg)^2))
+
+## Here we compute the MAE
+MAE_gbm = mean(abs(gbm_pred - test$mpg))
+
+

@@ -333,3 +333,77 @@ for(i in 1:length(n_trees)){
 
 ## Here we can see the results
 RF_results
+
+
+#######################
+## Gradient Boosting ##
+#######################
+
+## Here we read the data into R
+breast_cancer = read.csv(file = 'wisconsin_breast_cancer.csv')
+
+## First we drop id
+breast_cancer = breast_cancer[, -1]
+
+## Here we recode diagnosis 
+## Notice that we want to predict the probability of malignant cancer
+breast_cancer$diagnosis = ifelse(breast_cancer$diagnosis == 'B', 0, 1)
+
+## Here we select the variables of interest
+breast_cancer = breast_cancer[, c('diagnosis', 'area_worst', 'radius_worst', 
+                                  'compactness_mean')]
+
+## Here we split the data into training and testing
+set.seed(6.13)
+
+n = dim(breast_cancer)[1]
+training.obs = sample(1:n, round(0.7*n))
+
+train = breast_cancer[training.obs, ]
+test = breast_cancer[-training.obs, ]
+
+## Here we declare the number of trees to be considered
+n_trees = c(5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 200, 300, 400, 500)
+
+## Here we declare the depths to be considered
+n_depths = c(2, 3, 4, 5, 6)
+
+## Here we creat all the combinations of trees and depths
+parameter_grid = expand.grid(Number_of_Trees = n_trees, Depth = n_depths)
+
+## Here we declare the data.frame to store results
+GBM_results = parameter_grid
+GBM_results$Accuracy = NA
+GBM_results$Sensitivity = NA
+
+## Here we compute the performance of the different number of trees
+library(gbm)
+library(caret)
+
+for(i in 1:dim(parameter_grid)[1]){
+	
+	## Here we fit the random forest 
+	GBM = gbm(diagnosis ~ area_worst + radius_worst + compactness_mean, 
+	                      data = train, 
+	                      n.trees = parameter_grid$Number_of_Trees[i], 
+	                      interaction.depth = parameter_grid$Depth[i], 
+	                      distribution = 'bernoulli')
+	
+	## Here we predict on test data
+	GBM_preds = predict(GBM, test, type = 'response', 
+	                    n.trees = parameter_grid$Number_of_Trees[i])
+	GBM_preds = ifelse(GBM_preds < 0.5, 0, 1)
+
+	## Here we predict on create the confusion matrix
+	conf_matrix = confusionMatrix(as.factor(GBM_preds), 
+	                              as.factor(test$diagnosis))
+
+	## Here we store the results
+	GBM_results$Accuracy[i] = conf_matrix$overall['Accuracy'] 
+	GBM_results$Sensitivity[i] = conf_matrix$byClass['Sensitivity']
+}
+
+## Here we can see the results
+GBM_results
+
+

@@ -199,3 +199,80 @@ RMSE_gbm = sqrt(mean((gbm_pred - test$mpg)^2))
 MAE_gbm = mean(abs(gbm_pred - test$mpg))
 
 
+############################
+## Hyper-parameter Tuning ##
+############################
+
+##########
+## k-NN ##
+##########
+
+## Here we read the data into R
+breast_cancer = read.csv(file = 'wisconsin_breast_cancer.csv')
+
+## First we drop id
+breast_cancer = breast_cancer[, -1]
+
+## Here we recode diagnosis 
+## Notice that we want to predict the probability of malignant cancer
+breast_cancer$diagnosis = ifelse(breast_cancer$diagnosis == 'B', 0, 1)
+
+## Here we select the variables of interest
+breast_cancer = breast_cancer[, c('diagnosis', 'area_worst', 'radius_worst', 
+                                  'compactness_mean')]
+
+## First we need to create a function that transform a variable to 0-1 range
+normalize_0_1 = function(x){
+	return((x - min(x)) / (max(x) - min(x)))
+}
+
+## Here we standardize the 30 features in the data set
+breast_cancer[, 2:4] = data.frame(lapply(breast_cancer[, 2:4], normalize_0_1))
+
+## Here we split the data into training and testing
+set.seed(6.13)
+
+n = dim(breast_cancer)[1]
+training.obs = sample(1:n, round(0.7*n))
+
+train = breast_cancer[training.obs, ]
+test = breast_cancer[-training.obs, ]
+
+## Here we declare a matrix to store results
+K_NN_results = matrix(0, nrow = 20, ncol = 3)
+
+## Here we load the libraries
+library(class)
+library(caret)
+
+## Here we compute the model performance for the 
+## different number of neighbors
+for(i in 1:20){
+	
+	## Here we fit the model
+	K_NN = knn(train[, -1], test[, -1], cl = train$diagnosis, k = i)
+	
+	## Here we predict on create the confusion matrix
+	conf_matrix = confusionMatrix(K_NN, as.factor(test$diagnosis))
+	
+	## Here we store the results
+	K_NN_results[i, 1] = i
+	K_NN_results[i, 2] = conf_matrix$overall['Accuracy'] 
+	K_NN_results[i, 3] = conf_matrix$byClass['Sensitivity']
+}
+
+## Here we can visualize the results 
+## First we visualize the accuracy
+plot(K_NN_results[, 1], K_NN_results[, 2], xlab = 'Number of Neighbors', 
+     ylab = 'Accuracy (%)', type = 'o')
+grid()
+
+## Here we visualize the sensitivity/recall
+plot(K_NN_results[, 1], K_NN_results[, 3], xlab = 'Number of Neighbors', 
+     ylab = 'Sensitivity (%)', type = 'o')
+grid()
+
+
+###################
+## Random Forest ##
+###################

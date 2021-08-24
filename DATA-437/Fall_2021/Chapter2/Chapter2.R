@@ -38,3 +38,13 @@ box()
 hist(shooting$SPCT[shooting$Pos %in% c('SF', 'PF')], col = 'gray', xlab = 'Shooting Percentage', ylab = 'Frequency')
 box()
 
+
+##########
+## Mean ##
+##########
+
+## Reading Tom Brady's passing yards data (2001-2011)
+brady = read.csv(file = 'Dataset_2_1.csv')
+
+## Computing the mean of passing yards
+mean(brady$PY)

@@ -65,18 +65,32 @@ median(brady$PY)
 ## Reading csv file
 shooting = read.csv(file = 'Dataset_2_3.csv')
 
-## Computing the variance of shooting percentage of forwards
+## Computing the variance of shooting percentages of forwards
 var(shooting$SPCT[shooting$Pos %in% c('SF', 'PF')])
 
-## Computing the variance of shooting percentage of guards
+## Computing the variance of shooting percentages of guards
 var(shooting$SPCT[shooting$Pos == 'G'])
 
 ########################
 ## Standard Deviation ##
 ########################
 
-## Computing the standard deviation of shooting percentage of forwards
+## Computing the standard deviation of shooting percentages of forwards
 sd(shooting$SPCT[shooting$Pos %in% c('SF', 'PF')])
 
-## Computing the standard deviation of shooting percentage of guards
+## Computing the standard deviation of shooting percentages of guards
 sd(shooting$SPCT[shooting$Pos == 'G'])
+
+##############################
+## Coefficient of Variation ##
+##############################
+
+## Computing the CV of shooting percentages of forwards
+mean_forward = mean(shooting$SPCT[shooting$Pos %in% c('SF', 'PF')])
+sd_forward = sd(shooting$SPCT[shooting$Pos %in% c('SF', 'PF')])
+CV_forward = sd_forward / mean_forward
+
+## Computing the CV of shooting percentages of guards
+mean_guard = mean(shooting$SPCT[shooting$Pos == 'G'])
+sd_guard = sd(shooting$SPCT[shooting$Pos == 'G'])
+CV_guard = sd_guard / mean_guard

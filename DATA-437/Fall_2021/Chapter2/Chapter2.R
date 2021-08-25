@@ -71,6 +71,10 @@ var(shooting$SPCT[shooting$Pos %in% c('SF', 'PF')])
 ## Computing the variance of shooting percentange of guards
 var(shooting$SPCT[shooting$Pos == 'G'])
 
+########################
+## Standard Deviation ##
+########################
+
 ## Computing the standard deviation of shooting percentange of forwards
 sd(shooting$SPCT[shooting$Pos %in% c('SF', 'PF')])
 

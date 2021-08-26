@@ -94,3 +94,22 @@ CV_forward = sd_forward / mean_forward
 mean_guard = mean(shooting$SPCT[shooting$Pos == 'G'])
 sd_guard = sd(shooting$SPCT[shooting$Pos == 'G'])
 CV_guard = sd_guard / mean_guard
+
+#########
+## IQR ##
+#########
+
+## Reading csv file
+shooting = read.csv(file = 'Dataset_2_3.csv')
+
+## Computing the IQR of forwards shooting percentages
+forward = shooting$SPCT[shooting$Pos %in% c('SF', 'PF')]
+Q3_forward = quantile(forward, 0.75)
+Q1_forward = quantile(forward, 0.25)
+IQR_forward = as.numeric(Q3_forward) - as.numeric(Q1_forward)
+
+## Computing the IQR of guards shooting percentages
+guard = shooting$SPCT[shooting$Pos == 'G']
+Q3_guard = quantile(guard, 0.75)
+Q1_guard = quantile(guard, 0.25)
+IQR_guard = as.numeric(Q3_guard) - as.numeric(Q1_guard)

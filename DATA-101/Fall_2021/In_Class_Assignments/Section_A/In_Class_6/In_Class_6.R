@@ -8,3 +8,5 @@ barplot(table(Index$Index))
 ## Creating side-by-side boxplots
 boxplot(Height ~ Gender, data = Index)
 
+## Creating side-by-side boxplots
+boxplot(Weight ~ Gender, data = Index)

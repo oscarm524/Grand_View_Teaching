@@ -6,3 +6,9 @@ library(randomForest)
 
 ## Building the random forest model
 RF_md = randomForest(as.factor(Churn_numb) ~ tenure + MonthlyCharges, data = churn)
+
+## Defining the new observation
+newdata = data.frame('tenure' = 12, 'MonthlyCharges' = 250)
+
+## Estimating the likelihood of churn
+predict(RF_md, newdata, type = 'prob')

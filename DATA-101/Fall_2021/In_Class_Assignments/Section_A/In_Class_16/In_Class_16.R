@@ -9,3 +9,7 @@ head(churn)
 ## Defining the null model 
 md_null = glm(Churn_numb ~ 1, data = churn, family = 'binomial')
 summary(md_null)
+
+## Defining the full model 
+md_full = glm(Churn_numb ~ gender + SeniorCitizen + tenure + Contract + PaperlessBilling + MonthlyCharges + DeviceProtection + TechSupport, data = churn, family = 'binomial')
+summary(md_full)

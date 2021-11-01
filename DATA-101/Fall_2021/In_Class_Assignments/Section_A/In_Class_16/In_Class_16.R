@@ -16,3 +16,6 @@ summary(md_full)
 
 ## Forward selection 
 forward_selection = step(md_null, scope = list(lower = md_null, upper = md_full), direction = 'forward')
+
+## Backward selection 
+backward_selection = step(md_full, direction = 'backward')

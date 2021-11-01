@@ -13,3 +13,6 @@ summary(md_null)
 ## Defining the full model 
 md_full = glm(Churn_numb ~ gender + SeniorCitizen + tenure + Contract + PaperlessBilling + MonthlyCharges + DeviceProtection + TechSupport, data = churn, family = 'binomial')
 summary(md_full)
+
+## Forward selection 
+forward_selection = step(md_null, scope = list(lower = md_null, upper = md_full), direction = 'forward')

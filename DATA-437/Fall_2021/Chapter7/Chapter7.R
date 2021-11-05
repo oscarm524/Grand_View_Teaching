@@ -10,3 +10,9 @@ head(my_teams)
 my_teams$RD = my_teams$R - my_teams$RA
 my_teams$Wpct = my_teams$W / (my_teams$W + my_teams$L)
 head(my_teams)
+
+## Building the linear model 
+lm_md = lm(Wpct ~ RD, data = my_teams)
+
+## Extracting model results
+summary(lm_md)

@@ -25,3 +25,9 @@ head(my_teams)
 my_teams$log_W_L = log(my_teams$W / my_teams$L)
 my_teams$log_R_RA = log(my_teams$R / my_teams$RA)
 head(my_teams)
+
+## Estimating k in 7.4
+lm_pyt = lm(log_W_L ~ 0 + log_R_RA, data = my_teams)
+
+## Extracting model results
+summary(lm_pyt)

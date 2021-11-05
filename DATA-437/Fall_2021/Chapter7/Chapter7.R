@@ -20,3 +20,8 @@ summary(lm_md)
 ## Computing the winning percentage using 7.1
 my_teams$Wpct_pyt = my_teams$R^2 / (my_teams$R^2 + my_teams$RA^2)
 head(my_teams)
+
+## Computing the log-ratios
+my_teams$log_W_L = log(my_teams$W / my_teams$L)
+my_teams$log_R_RA = log(my_teams$R / my_teams$RA)
+head(my_teams)

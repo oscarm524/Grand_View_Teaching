@@ -16,3 +16,7 @@ lm_md = lm(Wpct ~ RD, data = my_teams)
 
 ## Extracting model results
 summary(lm_md)
+
+## Computing the winning percentage using 7.1
+my_teams$Wpct_pyt = my_teams$R^2 / (my_teams$R^2 + my_teams$RA^2)
+head(my_teams)

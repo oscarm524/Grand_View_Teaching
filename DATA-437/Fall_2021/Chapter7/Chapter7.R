@@ -31,3 +31,9 @@ lm_pyt = lm(log_W_L ~ 0 + log_R_RA, data = my_teams)
 
 ## Extracting model results
 summary(lm_pyt)
+
+## Creating Caola's IR formula
+IR = function(RS, RA){
+   y = (RS^2 + RA^2)^2 / (2*RS*RA^2)
+   return(y)
+}

@@ -37,3 +37,10 @@ IR = function(RS, RA){
    y = (RS^2 + RA^2)^2 / (2*RS*RA^2)
    return(y)
 }
+
+## Creating combinations of RS and RA
+IR_table = expand.grid(RS = seq(3, 6, by = 0.5), RA = seq(3, 6, by = 0.5))
+
+## Computing the IR
+IR_table$IR = IR(IR_table$RS, IR_table$RA)
+head(IR_table)

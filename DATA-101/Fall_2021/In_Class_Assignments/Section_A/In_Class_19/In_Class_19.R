@@ -60,3 +60,5 @@ GB_pred = predict(GB_md, test, n.tree = 500)
 ## Computing the RMSE and MAE
 RMSE_GB = sqrt(mean((GB_pred - test$mpg)^2))
 MAE_GB = mean(abs(GB_pred - test$mpg))
+
+## By comparing the RMSE and MAE, I select the gradient boosting model to predict mpg

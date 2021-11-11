@@ -30,3 +30,18 @@ knn_pred = predict(knn_md, test)
 ## Computing the RMSE and MAE
 RMSE_knn = sqrt(mean((knn_pred - test$mpg)^2))
 MAE_knn = mean(abs(knn_pred - test$mpg))
+
+###################
+## Random Forest ##
+###################
+
+library(randomForest)
+
+RF_md = randomForest(mpg ~ z_cylinders + z_displacement + z_horsepower + z_weight + z_acceleration, data = train)
+
+## Predicting on the test dataset 
+RF_pred = predict(RF_md, test)
+
+## Computing the RMSE and MAE
+RMSE_RF = sqrt(mean((RF_pred - test$mpg)^2))
+MAE_RF = mean(abs(RF_pred - test$mpg))

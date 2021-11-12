@@ -52,3 +52,8 @@ head(IR_table)
 ## Reading 2016 season data 
 data2016 = read.csv(file = 'all2016.csv')
 head(data2016)
+
+## Computing the three variables 
+data2016$RUNS = data2016$AWAY_SCORE_CT + data2016$HOME_SCORE_CT
+data2016$HALF.INNING = paste0(data2016$GAME_ID, data2016$INN_CT, data2016$BAT_HOME_ID)
+data2016$RUNS.SCORED = (data2016$BAT_DEST_ID > 3) + (data2016$RUN1_DEST_ID > 3) + (data2016$RUN2_DEST_ID > 3) + (data2016$RUN3_DEST_ID)

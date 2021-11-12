@@ -44,3 +44,11 @@ IR_table = expand.grid(RS = seq(3, 6, by = 0.5), RA = seq(3, 6, by = 0.5))
 ## Computing the IR
 IR_table$IR = IR(IR_table$RS, IR_table$RA)
 head(IR_table)
+
+#########################################
+## Value of Plays Using Run Expectancy ##
+#########################################
+
+## Reading 2016 season data 
+data2016 = read.csv(file = 'all2016.csv')
+head(data2016)

@@ -57,3 +57,14 @@ head(data2016)
 data2016$RUNS = data2016$AWAY_SCORE_CT + data2016$HOME_SCORE_CT
 data2016$HALF.INNING = paste0(data2016$GAME_ID, data2016$INN_CT, data2016$BAT_HOME_ID)
 data2016$RUNS.SCORED = (data2016$BAT_DEST_ID > 3) + (data2016$RUN1_DEST_ID > 3) + (data2016$RUN2_DEST_ID > 3) + (data2016$RUN3_DEST_ID > 3)
+
+library(plyr)
+
+## Computing half-inning stats
+half_innings = ddply(data2016, .(HALF.INNING), summarise, Outs.Inning = sum(EVENT_OUTS_CT), Runs.Inning = sum(RUNS.SCORED), Runs.Start = head(RUNS, 1), MAX.RUNS = Runs.Inning + Runs.Start)
+
+## Inner-join with data2016
+data2016 = merge(data2016, half_innings, by = 'HALF.INNING')
+
+## Computing RUNS.ROI
+data2016$RUNS.ROI = data2016$MAX.RUNS - data2016$RUNS

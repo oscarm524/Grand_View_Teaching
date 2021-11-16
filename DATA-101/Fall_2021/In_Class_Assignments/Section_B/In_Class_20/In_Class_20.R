@@ -25,4 +25,16 @@ n = dim(parameters)[1]
 
 library(gbm)
 
+for(i in 1:n){
+   
+   ## Building the gradient boosting model 
+   GBM = gbm(mpg ~ cylinders + displacement + horsepower + weight + acceleration, data = train, n.trees = parameters$Number_of_Trees[i], interaction.depth = parameters$Depth[i], distribution = 'gaussian')
+   
+   ## Predicting on the test dataset 
+   GBM_pred = predict(GBM, test, n.trees = parameters$Number_of_Trees[i], type = 'response')
+   
+   ## Storing results
+   parameters$RMSE[i] = sqrt(mean((GBM_pred - test$mpg)^2))
+   parameters$MAE[i] = mean(abs(GBM_pred - test$mpg))
+}
 

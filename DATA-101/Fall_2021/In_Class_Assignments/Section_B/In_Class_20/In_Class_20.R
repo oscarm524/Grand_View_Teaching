@@ -20,4 +20,9 @@ parameters = expand.grid('Number_of_Trees' =  n_tree, 'Depth' = n_depth)
 parameters$RMSE = NA
 parameters$MAE = NA
 
+## Extracting the number of parameter combinations 
+n = dim(parameters)[1]
+
+library(gbm)
+
 

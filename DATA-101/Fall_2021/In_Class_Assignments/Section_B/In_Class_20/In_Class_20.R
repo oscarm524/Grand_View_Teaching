@@ -38,3 +38,5 @@ for(i in 1:n){
    parameters$MAE[i] = mean(abs(GBM_pred - test$mpg))
 }
 
+## Sorting based on RMSE and MAE
+parameters = parameters[order(parameters$RMSE, parameters$MAE, decreasing = FALSE), ]

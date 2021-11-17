@@ -13,3 +13,6 @@ library(gbm)
 
 ## Defining the number of trees
 n_tree = c(100, 300, 500, 800, 1000, 1500, 2000)
+
+## Defining the depths 
+n_depth = c(2, 3, 4, 5, 6)

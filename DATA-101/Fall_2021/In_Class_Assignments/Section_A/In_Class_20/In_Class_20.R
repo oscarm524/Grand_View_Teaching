@@ -16,3 +16,9 @@ n_tree = c(100, 300, 500, 800, 1000, 1500, 2000)
 
 ## Defining the depths 
 n_depth = c(2, 3, 4, 5, 6)
+
+## Defining the combination of parameters
+parameters = expand.grid('Number_of_Trees' = n_tree, 'Depth' = n_depth)
+parameters$RMSE = NA
+parameters$MAE = NA
+

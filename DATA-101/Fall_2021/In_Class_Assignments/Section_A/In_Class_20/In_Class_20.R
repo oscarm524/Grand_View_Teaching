@@ -22,3 +22,19 @@ parameters = expand.grid('Number_of_Trees' = n_tree, 'Depth' = n_depth)
 parameters$RMSE = NA
 parameters$MAE = NA
 
+## Extracting the number of models to be considered
+m = dim(parameters)[1]
+
+for(i in 1:m){
+   
+   ## Building the gradient boosting model 
+   GB = gbm(mpg ~ cylinders + displacement + horsepower + weight + acceleration, data = train, n.trees = parameters$Number_of_Trees[i], interaction.depth = parameters$Depth[i], distribution = 'gaussian')
+   
+   ## Predicting on the test data 
+   GB_pred = predict(GB, test, n.trees = parameters$Number_of_Trees[i], type = 'response')
+   
+   ## Computing and storing model performance
+   parameters$RMSE[i] = sqrt(mean((GB_pred - test$mpg)^2))
+   parameters$MAE[i] = mean(abs(GB_pred - test$mpg))
+   
+}

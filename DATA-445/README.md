@@ -48,7 +48,7 @@ This chapter discusses two popular shrinkage approaches: Ridge regression and LA
 
 ## Chapter 5: Nonlinear Models
 
-This chapter discusses two popular non-linear models in regression and classification tasks: neural nets and support vector machines.
+This chapter discusses two popular non-linear models in regression and classification tasks: neural nets and support vector machines. This chapter explores the basic idea behind these two frameworks and their implementations. The following topics are covered:
 
     - Neural Nets
         - Perceptron

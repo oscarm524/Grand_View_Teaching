@@ -50,6 +50,11 @@ This chapter discusses two popular shrinkage approaches: Ridge regression and LA
 
 This chapter discusses two popular non-linear models: neural nets and support vector machines.
 
+    - Neural Nets
+        - Perceptron
+        - Multilayer perceptron
+        - MLP with Tensorflow and Keras
+
 ## Chapter 6: Fundamentals of Ensemble Learning
 
 ## Chapter 7: Clustering

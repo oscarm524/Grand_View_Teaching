@@ -55,6 +55,10 @@ This chapter discusses two popular non-linear models: neural nets and support ve
         - Multilayer perceptron
         - MLP with Tensorflow and Keras
 
+    - Support Vector Machines
+        - Linearly separable classes
+        - Linearly unseparable classes using kernerls
+
 ## Chapter 6: Fundamentals of Ensemble Learning
 
 ## Chapter 7: Clustering

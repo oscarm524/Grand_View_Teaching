@@ -63,6 +63,12 @@ This chapter discusses two popular non-linear models in regression and classific
 
 This chapter discusses the fundamentals of ensemble learning. Bagging and random forest are the first two frameworks that are discussed.  
 
+    - Bagging
+    - Random Forest
+    - AdaBoost
+    - Gradient Boosting
+    - Stacking
+    
 ## Chapter 7: Clustering
 
 ## Chapter 8

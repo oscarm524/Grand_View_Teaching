@@ -61,7 +61,7 @@ This chapter discusses two popular non-linear models in regression and classific
 
 ## Chapter 6: Fundamentals of Ensemble Learning
 
-This chapter discusses the fundamentals
+This chapter discusses the fundamentals of ensemble learning. 
 
 ## Chapter 7: Clustering
 

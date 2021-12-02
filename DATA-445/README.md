@@ -73,11 +73,11 @@ This chapter discusses the fundamentals of ensemble learning. Bagging and random
 
     - k nearest neighbors
         - k-d trees
-        - Balls Tree
-        
-    - k-means
-    - k-means++
-    - Soft Clustering: Fuzzy k-means 
+        - Ball Trees    
+    - k-means and k-means++
+    - Clustering evaluation metrics
+    - Soft Clustering
+        - Fuzzy C-means 
 
 ## Chapter 8
 

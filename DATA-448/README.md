@@ -2,7 +2,7 @@
 
 In this repository, I store all the code presendted in the lecture notes of DATA-446.
 
-## Chapter 1 
+## Chapter 1: Class Inbalance
 
 ## Chapter 2
 

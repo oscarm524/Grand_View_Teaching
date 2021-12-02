@@ -71,6 +71,10 @@ This chapter discusses the fundamentals of ensemble learning. Bagging and random
     
 ## Chapter 7: Clustering
 
+    - k-means
+    - k-means++
+    - 
+
 ## Chapter 8
 
 ## Chapter 9

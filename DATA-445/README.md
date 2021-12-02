@@ -71,9 +71,13 @@ This chapter discusses the fundamentals of ensemble learning. Bagging and random
     
 ## Chapter 7: Clustering
 
+    - k nearest neighbors
+        - k-d trees
+        - Balls Tree
+        
     - k-means
     - k-means++
-    - 
+    - Soft Clustering: Fuzzy k-means 
 
 ## Chapter 8
 

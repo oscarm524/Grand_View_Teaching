@@ -14,7 +14,7 @@ In this repository, I store all the code presendted in the lecture notes of DATA
 
 ## Chapter 6: Intro to Deep Learning with TensorFlow
 
-## Chapter 7:
+## Chapter 7: AWS SageMaker Best Practices
 
 ## Chapter 8
 

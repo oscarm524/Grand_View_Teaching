@@ -1,6 +1,6 @@
 # DATA-448: Predictive Analytics
 
-In this repository, I store all the code presendted in the lecture notes of DATA-446.
+In this repository, I store all the code presendted in the lecture notes of DATA-448.
 
 ## Chapter 1: Class Inbalanced
 

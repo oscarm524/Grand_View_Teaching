@@ -12,7 +12,7 @@ In this repository, I store all the code presendted in the lecture notes of DATA
 
 ## Chapter 5: Stacking Model Predictions
 
-## Chapter 6:
+## Chapter 6: Intro to Deep Learning with TensorFlow
 
 ## Chapter 7:
 

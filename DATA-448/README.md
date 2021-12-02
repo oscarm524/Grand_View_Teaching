@@ -2,9 +2,9 @@
 
 In this repository, I store all the code presendted in the lecture notes of DATA-446.
 
-## Chapter 1: Class Inbalance
+## Chapter 1: Class Inbalanced
 
-## Chapter 2
+## Chapter 2: Multiclass Classification
 
 ## Chapter 3
 

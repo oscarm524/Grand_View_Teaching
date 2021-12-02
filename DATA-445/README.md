@@ -76,8 +76,11 @@ This chapter discusses the fundamentals of ensemble learning. Bagging and random
         - Ball Trees    
     - k-means and k-means++
     - Clustering evaluation metrics
+        - Calinski-Harabasz score
+        - Davis-
     - Soft Clustering
         - Fuzzy C-means 
+    - Spectral clustering
 
 ## Chapter 8
 

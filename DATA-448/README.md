@@ -8,7 +8,7 @@ In this repository, I store all the code presendted in the lecture notes of DATA
 
 ## Chapter 3: Hyper-parameter Tuning
 
-## Chapter 4
+## Chapter 4: Feature Engineering 
 
 ## Chapter 5
 

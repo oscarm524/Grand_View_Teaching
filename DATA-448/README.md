@@ -6,7 +6,7 @@ In this repository, I store all the code presendted in the lecture notes of DATA
 
 ## Chapter 2: Multiclass Classification
 
-## Chapter 3
+## Chapter 3: Hyper-parameter Tuning
 
 ## Chapter 4
 

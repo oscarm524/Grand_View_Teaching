@@ -71,7 +71,7 @@ This chapter discusses the fundamentals of ensemble learning. Bagging and random
     
 ## Chapter 7: Clustering
 
-This chapter
+This chapter discusses some of the standard clustering algorithms. 
 
     - k nearest neighbors
         - k-d trees

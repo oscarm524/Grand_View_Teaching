@@ -71,7 +71,7 @@ This chapter discusses the fundamentals of ensemble learning. Bagging and random
     
 ## Chapter 7: Clustering
 
-This chapter discusses some of the standard clustering algorithms. It also discussses a couple of standard metrics used by practitioners to estimate the number of clusters.
+This chapter discusses some of the standard clustering algorithms. It also discussses a couple of standard metrics used by practitioners to estimate the number of clusters. A section related to spectral clustering is included at the end of the chapter. The following topics are covered:
 
     - k nearest neighbors
         - k-d trees

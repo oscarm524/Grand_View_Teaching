@@ -71,6 +71,8 @@ This chapter discusses the fundamentals of ensemble learning. Bagging and random
     
 ## Chapter 7: Clustering
 
+This chapter
+
     - k nearest neighbors
         - k-d trees
         - Ball Trees    

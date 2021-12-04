@@ -6,7 +6,7 @@ In this repository, I store all the code presendted in the lecture notes of DATA
 
 ## Chapter 2: Multiclass Classification
 
-## Chapter 3: Hyper-parameter Tuning
+## Chapter 3: Feature Engineering
 
 ## Chapter 4: Hyper-parameter Tuning
 
@@ -16,9 +16,4 @@ In this repository, I store all the code presendted in the lecture notes of DATA
 
 ## Chapter 7: AWS SageMaker Best Practices
 
-## Chapter 8
-
-## Chapter 9
-
-## Chapter 10 
 

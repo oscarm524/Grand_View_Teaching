@@ -2,7 +2,7 @@
 
 In this repository, I store all the code presendted in the lecture notes of DATA-448.
 
-## Chapter 1: Class Inbalanced Data
+## Chapter 1: Class Imbalanced Data
 
 ## Chapter 2: Multiclass Classification
 

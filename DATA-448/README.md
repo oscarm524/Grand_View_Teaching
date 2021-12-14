@@ -14,6 +14,7 @@ This chapter discusses some of the standard techniques that practitioners consid
         - Under-sampling 
         - Over-sampling 
         - SMOTE
+    - Cost-Sensitive training
 
 ## Chapter 2: Multiclass Classification
 

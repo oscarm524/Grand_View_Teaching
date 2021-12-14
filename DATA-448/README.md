@@ -20,6 +20,10 @@ This chapter discusses some of the standard techniques that practitioners consid
 
 This chapter discusses the two common techniques that are considered in multi-class classification problems. Multi-class classification problems involve classifying instances or samples into one class out of multiple classes (more than two). Each sample is assigned only one label and can’t be assigned more than one label at a time. The following topics are coverd:
 
+    - Understanding multi-class classification
+        - One-vs-all classifier
+        - One-vs-one classifier
+        - Performance matrics
 
 ## Chapter 3: Feature Engineering
 

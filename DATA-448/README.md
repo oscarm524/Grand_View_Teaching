@@ -18,7 +18,8 @@ This chapter discusses some of the standard techniques that practitioners consid
 
 ## Chapter 2: Multiclass Classification
 
-This chapter discusses the two common techniques that are considered in multi-class classification problems.
+This chapter discusses the two common techniques that are considered in multi-class classification problems. Multi-class classification problems involve classifying instances or samples into one class out of multiple classes (more than two). Each sample is assigned only one label and can’t be assigned more than one label at a time. The following topics are coverd:
+
 
 ## Chapter 3: Feature Engineering
 

@@ -4,7 +4,7 @@ In this repository, I store all the code presendted in the lecture notes of DATA
 
 ## Chapter 1: Class Imbalanced Data
 
-This chapter discusses some of the standard techniques that practitioners consider when it comes to imbalanced binary classification problems. The following topics are covered:
+This chapter discusses some of the standard techniques that practitioners consider when it comes to imbalanced binary classification problems. An imbalance occurs when one or more classes have very low proportion in the training data as compared to the other classes. Imbalance can be present in any dataset or application, and hence, the machine learning practitioner should be aware of the implications of modeling this type of data. The following topics are covered:
 
     - Performing classification on imbalanced data
     - Model tuning

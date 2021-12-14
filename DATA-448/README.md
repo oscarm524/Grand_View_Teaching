@@ -8,7 +8,9 @@ This chapter discusses some of the standard techniques that practitioners consid
 
     - Performing classification on imbalanced data
     - Model tuning
-        - 
+        - Alternate cutoffs
+        - Class weights
+    - 
 
 ## Chapter 2: Multiclass Classification
 

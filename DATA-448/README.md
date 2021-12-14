@@ -11,7 +11,9 @@ This chapter discusses some of the standard techniques that practitioners consid
         - Alternate cutoffs
         - Class weights
     - Sampling methods
-        - 
+        - Under-sampling 
+        - Over-sampling 
+        - SMOTE
 
 ## Chapter 2: Multiclass Classification
 

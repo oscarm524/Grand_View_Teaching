@@ -18,6 +18,8 @@ This chapter discusses some of the standard techniques that practitioners consid
 
 ## Chapter 2: Multiclass Classification
 
+This chapter discusses 
+
 ## Chapter 3: Feature Engineering
 
 ## Chapter 4: Hyper-parameter Tuning

@@ -4,7 +4,7 @@ In this repository, I store all the code presendted in the lecture notes of DATA
 
 ## Chapter 1: Class Imbalanced Data
 
-This chapter discusses some of the standard techniques 
+This chapter discusses some of the standard techniques that practitioners consider when it comes to imbalanced binary classification problems.
 
 ## Chapter 2: Multiclass Classification
 

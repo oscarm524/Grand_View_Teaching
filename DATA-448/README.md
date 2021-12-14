@@ -10,7 +10,8 @@ This chapter discusses some of the standard techniques that practitioners consid
     - Model tuning
         - Alternate cutoffs
         - Class weights
-    - 
+    - Sampling methods
+        - 
 
 ## Chapter 2: Multiclass Classification
 

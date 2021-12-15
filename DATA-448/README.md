@@ -24,6 +24,9 @@ This chapter discusses the two common techniques that are considered in multi-cl
         - One-vs-all classifier
         - One-vs-one classifier
         - Performance matrics
+            - Precision
+            - Recall
+            - F1
 
 ## Chapter 3: Feature Engineering
 

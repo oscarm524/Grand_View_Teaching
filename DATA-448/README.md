@@ -31,6 +31,7 @@ This chapter discusses the two common techniques that are considered in multi-cl
 ## Chapter 3: Feature Engineering
 
     - Encoding categorical predictors
+    - Engineering numeric predictors
     
     
 ## Chapter 4: Hyper-parameter Tuning

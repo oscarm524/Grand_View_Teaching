@@ -30,6 +30,8 @@ This chapter discusses the two common techniques that are considered in multi-cl
 
 ## Chapter 3: Feature Engineering
 
+    - Encoding categorical data 
+    
 ## Chapter 4: Hyper-parameter Tuning
 
 ## Chapter 5: Stacking Model Predictions

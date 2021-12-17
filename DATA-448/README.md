@@ -32,6 +32,7 @@ This chapter discusses the two common techniques that are considered in multi-cl
 
     - Encoding categorical predictors
     - Engineering numeric predictors
+    - Detecting interaction effects
     
     
 ## Chapter 4: Hyper-parameter Tuning

@@ -10,9 +10,12 @@ def RF_Feature_Importance(X, Y, nsim, cv):
     
     for i in range(0, nsim):
         
+        results.append(RF_Feature_Imporance_Help(X, Y, cv))
         
+    return pd.DataFrame(results)
     
 
+    
 def RF_Feature_Importance_Help(X, Y, cv):
     
     ## Defining list to store results 

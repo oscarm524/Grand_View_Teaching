@@ -2,13 +2,24 @@ import pandas as pd
 import numpy as np
 from sklearn.model_selection import StratifiedKFold
 
-def RF_Feature_Importance_Help(X, Y):
+
+def RF_Feature_Importance(X, Y, nsim, cv):
+    
+    ## Defining list to store results 
+    results = list()
+    
+    for i in range(0, nsim):
+        
+        
+    
+
+def RF_Feature_Importance_Help(X, Y, cv):
     
     ## Defining list to store results 
     feature_importance = list()
 
     ## Cross-validation (feature importance)
-    skf = StratifiedKFold(n_splits = 5)
+    skf = StratifiedKFold(n_splits = cv)
 
     for train_index, test_index in skf.split(X, Y):
     

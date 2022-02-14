@@ -21,7 +21,7 @@ def RF_Feature_Importance(X, Y, nsim, cv):
         
         results.append(RF_Feature_Importance_Help(X, Y, cv))
         
-    return pd.DataFrame(results)
+    return pd.concat(results)
     
 
     

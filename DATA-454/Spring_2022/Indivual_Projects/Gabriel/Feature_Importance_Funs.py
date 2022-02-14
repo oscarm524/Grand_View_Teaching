@@ -21,7 +21,10 @@ def RF_Feature_Importance(X, Y, nsim, cv):
         
         results.append(RF_Feature_Importance_Help(X, Y, cv))
         
-    return pd.concat(results)
+    results = pd.concat(results).reset_index(drop = True)
+    
+    
+#     return pd.concat(results).reset_index(drop = True)
     
 
     

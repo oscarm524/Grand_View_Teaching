@@ -21,10 +21,10 @@ def RF_Feature_Importance(X, Y, nsim, cv):
         
         results.append(RF_Feature_Importance_Help(X, Y, cv))
         
-    results = pd.concat(results).reset_index(drop = True)
+    results_out = pd.DataFrame({'Feature': X.columns, 'Importance': pd.concat(results).apply(np.mean, axis = 0)})
+    results_out = results_out.sort_values(by = 'Importance', ascending = False)
     
-    
-#     return pd.concat(results).reset_index(drop = True)
+    return results_out
     
 
     

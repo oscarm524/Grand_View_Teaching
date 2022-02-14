@@ -44,4 +44,5 @@ def RF_Feature_Importance_Help(X, Y, cv):
         ## Extracting importances
         feature_importance.append(RF.feature_importances_)
     
-    return pd.DataFrame(feature_importance).apply(np.mean, axis = 0)
+    return pd.DataFrame(feature_importance)
+#     return pd.DataFrame(feature_importance).apply(np.mean, axis = 0)

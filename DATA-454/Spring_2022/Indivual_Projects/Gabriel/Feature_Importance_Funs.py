@@ -6,6 +6,14 @@ from sklearn.ensemble import RandomForestClassifier
 
 def RF_Feature_Importance(X, Y, nsim, cv):
     
+    """
+    This function takes 4 arguments:
+    X: input variables
+    Y: target variable
+    nsim: number of repetitions
+    cv: number of folds
+    """
+    
     ## Defining list to store results 
     results = list()
     

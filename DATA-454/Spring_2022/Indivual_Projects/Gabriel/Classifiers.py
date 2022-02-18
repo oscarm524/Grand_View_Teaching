@@ -249,60 +249,60 @@ def Classifier(X_train, Y_train, X_val, Y_val, model):
 
     if(model == 'svm'):
 
-    ###############################################
-    ## Defining hyer-parameters to be considered ##
-    ###############################################
+        ###############################################
+        ## Defining hyer-parameters to be considered ##
+        ###############################################
 
-    ## Kernel
-    kernel = ['rbf', 'poly', 'sigmoid']
+        ## Kernel
+        kernel = ['rbf', 'poly', 'sigmoid']
 
-    ## Regularization parameter
-    C = [0.01, 0.1, 1, 10]
+        ## Regularization parameter
+        C = [0.01, 0.1, 1, 10]
 
-    ## Gamma
-    gamma = [0.001, 0.01, 0.1, 1]
+        ## Gamma
+        gamma = [0.001, 0.01, 0.1, 1]
 
-    ## Defining cutoffs values
-    cutoffs = [round(x, 2) for x in np.linspace(start = 0.1, stop = 0.5, num = 5)]
+        ## Defining cutoffs values
+        cutoffs = [round(x, 2) for x in np.linspace(start = 0.1, stop = 0.5, num = 5)]
 
-    ## Creating the dictionary of hyper-parameters
-    param_grid = {'kernel': kernel,
-    'C': C,
-    'gamma': gamma}
+        ## Creating the dictionary of hyper-parameters
+        param_grid = {'kernel': kernel,
+        'C': C,
+        'gamma': gamma}
 
-    param_grid = expand_grid(param_grid)
+        param_grid = expand_grid(param_grid)
 
-    ## Adding accuracy and recall columns
-    param_grid['cutoff'] np.nan
-    param_grid['accuracy'] = np.nan
-    param_grid['recall'] = np.nan
+        ## Adding accuracy and recall columns
+        param_grid['cutoff'] np.nan
+        param_grid['accuracy'] = np.nan
+        param_grid['recall'] = np.nan
 
-    for i in range(param_grid.shape[0]):
-    print(i)
-    ## Fitting the model (using the ith combination of hyper-parameters)
-    SVM_md = SVC(kernel = param_grid['kernel'][i],
-    C = param_grid['C'][i],
-    gamma = param_grid['gamma'][i],
-    probability = True)
+        for i in range(param_grid.shape[0]):
+        print(i)
+        ## Fitting the model (using the ith combination of hyper-parameters)
+        SVM_md = SVC(kernel = param_grid['kernel'][i],
+        C = param_grid['C'][i],
+        gamma = param_grid['gamma'][i],
+        probability = True)
 
-    SVM_md.fit(X_train, Y_train)
+        SVM_md.fit(X_train, Y_train)
 
-    ## Predicting on the val dataset
-    preds = SVM_md.predict_proba(X_val)[:, 1]
+        ## Predicting on the val dataset
+        preds = SVM_md.predict_proba(X_val)[:, 1]
 
-    ## Extracting False-Positive, True-Positive and optimal cutoff
-    False_Positive_Rate, True_Positive_Rate, cutoff = roc_curve(Y_val, preds)
+        ## Extracting False-Positive, True-Positive and optimal cutoff
+        False_Positive_Rate, True_Positive_Rate, cutoff = roc_curve(Y_val, preds)
 
-    ## Finding optimal cutoff (the one that maximizes True-Positive and minimizes False-Positive)
-    to_select = np.argmax(True_Positive_Rate - False_Positive_Rate)
-    opt_cutoff = cutoff[to_select]
+        ## Finding optimal cutoff (the one that maximizes True-Positive and minimizes False-Positive)
+        to_select = np.argmax(True_Positive_Rate - False_Positive_Rate)
+        opt_cutoff = cutoff[to_select]
 
-    ## Changing to 0-1
-    Y_hat = np.where(preds <= opt_cutoff, 0, 1)
+        ## Changing to 0-1
+        Y_hat = np.where(preds <= opt_cutoff, 0, 1)
 
-    ## Computing accuracy and recall
-    param_grid.iloc[i, 3] = opt_cutoff
-    param_grid.iloc[i, 4] = accuracy_score(Y_val, Y_hat)
-    param_grid.iloc[i, 5] = recall_score(Y_val, Y_hat, average = 'macro')
+        ## Computing accuracy and recall
+        param_grid.iloc[i, 3] = opt_cutoff
+        param_grid.iloc[i, 4] = accuracy_score(Y_val, Y_hat)
+        param_grid.iloc[i, 5] = recall_score(Y_val, Y_hat, average = 'macro')
 
-    return param_grid
+        return param_grid

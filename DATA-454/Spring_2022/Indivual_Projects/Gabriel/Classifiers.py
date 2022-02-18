@@ -108,7 +108,7 @@ def Classifier(X_train, Y_train, X_val, Y_val, model):
         max_depth = [3, 5, 7]
 
         ## Learning rate
-        learning_rate = [0.001, 0.01, 0.1, 0.5, 1]
+        learning_rate = [0.001, 0.01, 0.1, 1]
 
         ## Creating the dictionary of hyper-parameters
         param_grid = {'n_estimators': n_estimators,
@@ -117,7 +117,7 @@ def Classifier(X_train, Y_train, X_val, Y_val, model):
 
         param_grid = expand_grid(param_grid)
 
-        ## Adding accuracy and recall columns
+        ## Adding evaluation
         param_grid['evaluation'] = np.nan
 
         for i in range(param_grid.shape[0]):
@@ -149,16 +149,16 @@ def Classifier(X_train, Y_train, X_val, Y_val, model):
         ###############################################
 
         ## Number of trees
-        n_estimators = [100, 500, 1000, 1500, 2000]
+        n_estimators = [100, 300, 500]
 
         ## Learning rate
-        learning_rate = [0.001, 0.01, 0.1, 0.5, 1]
+        learning_rate = [0.001, 0.01, 0.1, 1]
 
         ## Number of features to consider at every split
-        max_features = [3, 5, 7]
+        max_features = [3, 5]
 
         ## Maximum number of levels in tree
-        max_depth = [5, 7, 10]
+        max_depth = [3, 5, 7]
 
         ## Minimum number of samples required to split a node
         min_samples_split = [10, 15]
@@ -166,23 +166,18 @@ def Classifier(X_train, Y_train, X_val, Y_val, model):
         ## Minimum number of samples required at each leaf node
         min_samples_leaf = [5, 7]
 
-        ## Defining cutoffs values
-        cutoffs = [round(x, 2) for x in np.linspace(start = 0.1, stop = 0.5, num = 5)]
-
         ## Creating the dictionary of hyper-parameters
         param_grid = {'n_estimators': n_estimators,
-        'learning_rate': learning_rate,
-        'max_features': max_features,
-        'max_depth': max_depth,
-        'min_samples_split': min_samples_split,
-        'min_samples_leaf': min_samples_leaf}
+                      'learning_rate': learning_rate,
+                      'max_features': max_features,
+                      'max_depth': max_depth,
+                      'min_samples_split': min_samples_split,
+                      'min_samples_leaf': min_samples_leaf}
 
         param_grid = expand_grid(param_grid)
 
-        ## Adding accuracy and recall columns
-        param_grid['cutoff'] = np.nan
-        param_grid['accuracy'] = np.nan
-        param_grid['recall'] = np.nan
+        ## Adding evaluation <-------------------- I'm here
+        param_grid['evaluation'] = np.nan
 
         for i in range(param_grid.shape[0]):
 

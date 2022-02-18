@@ -44,7 +44,7 @@ def Classifier(X_train, Y_train, X_val, Y_val, model):
         ###############################################
 
         ## Number of trees in random forest
-        n_estimators = [100, 500, 1000]
+        n_estimators = [100, 300, 500]
 
         ## Number of features to consider at every split
         max_features = [3, 5]

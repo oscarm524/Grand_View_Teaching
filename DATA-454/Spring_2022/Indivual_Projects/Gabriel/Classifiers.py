@@ -69,9 +69,7 @@ def Classifier(X_train, Y_train, X_val, Y_val, model):
         param_grid = expand_grid(param_grid)
 
         ## Adding accuracy and recall columns
-        param_grid['accuracy'] = np.nan
-        param_grid['recall'] = np.nan
-        param_grid['precision'] = np.nan
+        param_grid['evaluation'] = np.nan
 
         for i in range(param_grid.shape[0]):
             print('Working on job ', i, ' out of ', param_grid.shape[0])
@@ -88,7 +86,7 @@ def Classifier(X_train, Y_train, X_val, Y_val, model):
             preds = RF_md.predict_proba(X_val)[:, 1]
 
             ## Estimating optimal cut-off based on evaluatio
-            Y_hat = precision_recall_cutoff.precision_recall_cutoff(Y_val, preds)
+            Y_hat, cutoff = precision_recall_cutoff.precision_recall_cutoff(Y_val, preds)
             
             ## Computing accuracy and recall
             param_grid.iloc[i, 5] = accuracy_score(Y_val, Y_hat)

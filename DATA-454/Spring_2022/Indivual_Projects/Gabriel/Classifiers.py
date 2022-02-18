@@ -87,7 +87,7 @@ def Classifier(X_train, Y_train, X_val, Y_val, model):
             ## Predicting on the val dataset
             preds = RF_md.predict_proba(X_val)[:, 1]
 
-            ## Extracting False-Positive, True-Positive and optimal cutoff
+            ## Estimating optimal cut-off based on evaluatio
             Y_hat = precision_recall_cutoff.precision_recall_cutoff(Y_val, preds)
             
             ## Computing accuracy and recall

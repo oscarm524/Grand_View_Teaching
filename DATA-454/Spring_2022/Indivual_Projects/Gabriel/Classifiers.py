@@ -104,6 +104,9 @@ def Classifier(X_train, Y_train, X_val, Y_val, model):
         ## Number of trees
         n_estimators = [100, 300, 500]
 
+        ## Number of features to consider at every split
+        max_features = [3, 5]
+
         ## Maximum number of levels in tree
         max_depth = [3, 5, 7]
 
@@ -112,6 +115,7 @@ def Classifier(X_train, Y_train, X_val, Y_val, model):
 
         ## Creating the dictionary of hyper-parameters
         param_grid = {'n_estimators': n_estimators,
+                      'max_features': max_features,
                       'max_depth': max_depth,
                       'learning_rate': learning_rate}
 
@@ -123,7 +127,9 @@ def Classifier(X_train, Y_train, X_val, Y_val, model):
         for i in range(param_grid.shape[0]):
 
             ## Fitting the model (using the ith combination of hyper-parameters)
-            Ada_md = AdaBoostClassifier(base_estimator = DecisionTreeClassifier(max_depth =                                                            param_grid['max_depth'][i]),
+            Ada_md = AdaBoostClassifier(base_estimator = DecisionTreeClassifier(
+                                        max_features = param_grid['max_features'], 
+                                        max_depth = param_grid['max_depth'][i]),
                                         n_estimators = param_grid['n_estimators'][i],
                                         learning_rate = param_grid['learning_rate'][i])
 
@@ -133,7 +139,7 @@ def Classifier(X_train, Y_train, X_val, Y_val, model):
             preds = Ada_md.predict_proba(X_val)[:, 1]
 
             ## Computing prediction evaluation (based on 2014 dmc)
-            param_grid.iloc[i, 3] = np.sum(abs(Y_val - preds))
+            param_grid.iloc[i, 4] = np.sum(abs(Y_val - preds))
             
         return param_grid
 

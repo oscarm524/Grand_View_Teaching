@@ -88,14 +88,7 @@ def Classifier(X_train, Y_train, X_test, Y_test, model):
     preds = RF_md.predict_proba(X_test)[:, 1]
 
     ## Extracting False-Positive, True-Positive and optimal cutoff
-    False_Positive_Rate, True_Positive_Rate, cutoff = roc_curve(Y_test, preds)
-
-    ## Finding optimal cutoff (the one that maximizes True-Positive and minimizes False-Positive)
-    to_select = np.argmax(True_Positive_Rate - False_Positive_Rate)
-    opt_cutoff = cutoff[to_select]
-
-    ## Changing to 0-1
-    Y_hat = np.where(preds <= opt_cutoff, 0, 1)
+    Y_hat = precision_recall_cutoff.precision_recall_cutoff(Y_test, preds)
 
     ## Computing accuracy and recall
     param_grid.iloc[i, 5] = opt_cutoff

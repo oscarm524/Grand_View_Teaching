@@ -94,6 +94,7 @@ def Classifier(X_train, Y_train, X_test, Y_test, model):
     param_grid.iloc[i, 5] = opt_cutoff
     param_grid.iloc[i, 6] = accuracy_score(Y_test, Y_hat)
     param_grid.iloc[i, 7] = recall_score(Y_test, Y_hat, average = 'macro')
+    param_grid.iloc[i, 8] = precision_score(Y_test, Y_hat, average = 'macro')
 
     return param_grid
 

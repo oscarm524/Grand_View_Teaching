@@ -17,7 +17,7 @@ def expand_grid(dictionary):
     return pd.DataFrame([row for row in product(*dictionary.values())], columns = dictionary.keys())
 
 
-def Classifier(X_train, Y_train, X_test, Y_test, model):
+def Classifier(X_train, Y_train, X_val, Y_val, model):
 
     """
 
@@ -27,8 +27,8 @@ def Classifier(X_train, Y_train, X_test, Y_test, model):
 
     X_train: input variables in the train dataset
     Y_train: target variable in the train dataset (Y is expected to be a binary variable)
-    X_test: input variables in the test dataset
-    Y_test: target variable in the test dataset (Y is expected to be a binary variable)
+    X_val: input variables in the val dataset
+    Y_val: target variable in the val dataset (Y is expected to be a binary variable)
     model: model to be considered
 
     """
@@ -85,17 +85,17 @@ def Classifier(X_train, Y_train, X_test, Y_test, model):
 
     RF_md.fit(X_train, Y_train)
 
-    ## Predicting on the test dataset
-    preds = RF_md.predict_proba(X_test)[:, 1]
+    ## Predicting on the val dataset
+    preds = RF_md.predict_proba(X_val)[:, 1]
 
     ## Extracting False-Positive, True-Positive and optimal cutoff
-    Y_hat = precision_recall_cutoff.precision_recall_cutoff(Y_test, preds)
+    Y_hat = precision_recall_cutoff.precision_recall_cutoff(Y_val, preds)
 
     ## Computing accuracy and recall
     param_grid.iloc[i, 5] = opt_cutoff
-    param_grid.iloc[i, 6] = accuracy_score(Y_test, Y_hat)
-    param_grid.iloc[i, 7] = recall_score(Y_test, Y_hat)
-    param_grid.iloc[i, 8] = precision_score(Y_test, Y_hat)
+    param_grid.iloc[i, 6] = accuracy_score(Y_val, Y_hat)
+    param_grid.iloc[i, 7] = recall_score(Y_val, Y_hat)
+    param_grid.iloc[i, 8] = precision_score(Y_val, Y_hat)
 
     return param_grid
 
@@ -143,11 +143,11 @@ def Classifier(X_train, Y_train, X_test, Y_test, model):
 
     Ada_md.fit(X_train, Y_train)
 
-    ## Predicting on the test dataset
-    preds = Ada_md.predict_proba(X_test)[:, 1]
+    ## Predicting on the val dataset
+    preds = Ada_md.predict_proba(X_val)[:, 1]
 
     ## Extracting False-Positive, True-Positive and optimal cutoff
-    False_Positive_Rate, True_Positive_Rate, cutoff = roc_curve(Y_test, preds)
+    False_Positive_Rate, True_Positive_Rate, cutoff = roc_curve(Y_val, preds)
 
     ## Finding optimal cutoff (the one that maximizes True-Positive and minimizes False-Positive)
     to_select = np.argmax(True_Positive_Rate - False_Positive_Rate)
@@ -158,8 +158,8 @@ def Classifier(X_train, Y_train, X_test, Y_test, model):
 
     ## Computing accuracy and recall
     param_grid.iloc[i, 3] = opt_cutoff
-    param_grid.iloc[i, 4] = accuracy_score(Y_test, Y_hat)
-    param_grid.iloc[i, 5] = recall_score(Y_test, Y_hat, average = 'macro')
+    param_grid.iloc[i, 4] = accuracy_score(Y_val, Y_hat)
+    param_grid.iloc[i, 5] = recall_score(Y_val, Y_hat, average = 'macro')
 
     return param_grid
 
@@ -222,11 +222,11 @@ def Classifier(X_train, Y_train, X_test, Y_test, model):
 
     GB_md.fit(X_train, Y_train)
 
-    ## Predicting on the test dataset
-    preds = GB_md.predict_proba(X_test)[:, 1]
+    ## Predicting on the val dataset
+    preds = GB_md.predict_proba(X_val)[:, 1]
 
     ## Extracting False-Positive, True-Positive and optimal cutoff
-    False_Positive_Rate, True_Positive_Rate, cutoff = roc_curve(Y_test, preds)
+    False_Positive_Rate, True_Positive_Rate, cutoff = roc_curve(Y_val, preds)
 
     ## Finding optimal cutoff (the one that maximizes True-Positive and minimizes False-Positive)
     to_select = np.argmax(True_Positive_Rate - False_Positive_Rate)
@@ -237,8 +237,8 @@ def Classifier(X_train, Y_train, X_test, Y_test, model):
 
     ## Computing accuracy and recall
     param_grid.iloc[i, 6] = opt_cutoff
-    param_grid.iloc[i, 7] = accuracy_score(Y_test, Y_hat)
-    param_grid.iloc[i, 8] = recall_score(Y_test, Y_hat, average = 'macro')
+    param_grid.iloc[i, 7] = accuracy_score(Y_val, Y_hat)
+    param_grid.iloc[i, 8] = recall_score(Y_val, Y_hat, average = 'macro')
 
     return param_grid
 
@@ -287,11 +287,11 @@ def Classifier(X_train, Y_train, X_test, Y_test, model):
 
     SVM_md.fit(X_train, Y_train)
 
-    ## Predicting on the test dataset
-    preds = SVM_md.predict_proba(X_test)[:, 1]
+    ## Predicting on the val dataset
+    preds = SVM_md.predict_proba(X_val)[:, 1]
 
     ## Extracting False-Positive, True-Positive and optimal cutoff
-    False_Positive_Rate, True_Positive_Rate, cutoff = roc_curve(Y_test, preds)
+    False_Positive_Rate, True_Positive_Rate, cutoff = roc_curve(Y_val, preds)
 
     ## Finding optimal cutoff (the one that maximizes True-Positive and minimizes False-Positive)
     to_select = np.argmax(True_Positive_Rate - False_Positive_Rate)
@@ -302,7 +302,7 @@ def Classifier(X_train, Y_train, X_test, Y_test, model):
 
     ## Computing accuracy and recall
     param_grid.iloc[i, 3] = opt_cutoff
-    param_grid.iloc[i, 4] = accuracy_score(Y_test, Y_hat)
-    param_grid.iloc[i, 5] = recall_score(Y_test, Y_hat, average = 'macro')
+    param_grid.iloc[i, 4] = accuracy_score(Y_val, Y_hat)
+    param_grid.iloc[i, 5] = recall_score(Y_val, Y_hat, average = 'macro')
 
     return param_grid

@@ -50,7 +50,7 @@ def Classifier(X_train, Y_train, X_val, Y_val, model):
         max_features = [3, 5]
 
         ## Maximum number of levels in tree
-        max_depth = [3, 5, 7]
+        max_depth = [3, 5]
 
         ## Minimum number of samples required to split a node
         min_samples_split = [10, 15]
@@ -72,7 +72,7 @@ def Classifier(X_train, Y_train, X_val, Y_val, model):
         param_grid['evaluation'] = np.nan
 
         for i in range(param_grid.shape[0]):
-            print('Working on job ', i, ' out of ', param_grid.shape[0])
+            print('Working on job', i + 1, 'out of ', param_grid.shape[0])
             ## Fitting the model (using the ith combination of hyper-parameters)
             RF_md = RandomForestClassifier(n_estimators = param_grid['n_estimators'][i],
                                            max_features = param_grid['max_features'][i],
@@ -108,7 +108,7 @@ def Classifier(X_train, Y_train, X_val, Y_val, model):
         max_features = [3, 5]
 
         ## Maximum number of levels in tree
-        max_depth = [3, 5, 7]
+        max_depth = [3, 5]
 
         ## Learning rate
         learning_rate = [0.001, 0.01, 0.1, 1]
@@ -125,7 +125,7 @@ def Classifier(X_train, Y_train, X_val, Y_val, model):
         param_grid['evaluation'] = np.nan
 
         for i in range(param_grid.shape[0]):
-
+            print('Working on job', i + 1, 'out of ', param_grid.shape[0])
             ## Fitting the model (using the ith combination of hyper-parameters)
             Ada_md = AdaBoostClassifier(base_estimator = DecisionTreeClassifier(
                                         max_features = param_grid['max_features'], 
@@ -164,7 +164,7 @@ def Classifier(X_train, Y_train, X_val, Y_val, model):
         max_features = [3, 5]
 
         ## Maximum number of levels in tree
-        max_depth = [3, 5, 7]
+        max_depth = [3, 5]
 
         ## Minimum number of samples required to split a node
         min_samples_split = [10, 15]
@@ -186,7 +186,7 @@ def Classifier(X_train, Y_train, X_val, Y_val, model):
         param_grid['evaluation'] = np.nan
 
         for i in range(param_grid.shape[0]):
-
+            print('Working on job', i + 1, 'out of ', param_grid.shape[0])
             ## Fitting the model (using the ith combination of hyper-parameters)
             GB_md = GradientBoostingClassifier(n_estimators = param_grid['n_estimators'][i],
                                                learning_rate = param_grid['learning_rate'][i],
@@ -236,7 +236,7 @@ def Classifier(X_train, Y_train, X_val, Y_val, model):
         param_grid['evaluation'] = np.nan
 
         for i in range(param_grid.shape[0]):
-
+            print('Working on job', i + 1, 'out of ', param_grid.shape[0])
             ## Fitting the model (using the ith combination of hyper-parameters)
             SVM_md = SVC(kernel = param_grid['kernel'][i],
                          C = param_grid['C'][i],

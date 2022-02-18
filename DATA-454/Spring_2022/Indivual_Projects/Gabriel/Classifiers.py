@@ -50,7 +50,7 @@ def Classifier(X_train, Y_train, X_val, Y_val, model):
         max_features = [3, 5]
 
         ## Maximum number of levels in tree
-        max_depth = [5, 7, 10]
+        max_depth = [3, 5, 7]
 
         ## Minimum number of samples required to split a node
         min_samples_split = [10, 15]
@@ -84,14 +84,9 @@ def Classifier(X_train, Y_train, X_val, Y_val, model):
 
             ## Predicting on the val dataset
             preds = RF_md.predict_proba(X_val)[:, 1]
-
-            ## Estimating optimal cut-off based on evaluatio
-            Y_hat, cutoff = precision_recall_cutoff.precision_recall_cutoff(Y_val, preds)
             
             ## Computing accuracy and recall
-            param_grid.iloc[i, 5] = accuracy_score(Y_val, Y_hat)
-            param_grid.iloc[i, 6] = recall_score(Y_val, Y_hat)
-            param_grid.iloc[i, 7] = precision_score(Y_val, Y_hat)
+            param_grid.iloc[i, 5] = np.sum(abs(Y_val - preds))
 
         return param_grid
 

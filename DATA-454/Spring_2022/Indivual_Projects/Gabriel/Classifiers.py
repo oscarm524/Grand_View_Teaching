@@ -69,7 +69,6 @@ def Classifier(X_train, Y_train, X_val, Y_val, model):
         param_grid = expand_grid(param_grid)
 
         ## Adding accuracy and recall columns
-        param_grid['cutoff'] = np.nan
         param_grid['accuracy'] = np.nan
         param_grid['recall'] = np.nan
         param_grid['precision'] = np.nan
@@ -92,10 +91,9 @@ def Classifier(X_train, Y_train, X_val, Y_val, model):
             Y_hat = precision_recall_cutoff.precision_recall_cutoff(Y_val, preds)
 
             ## Computing accuracy and recall
-            param_grid.iloc[i, 5] = opt_cutoff
-            param_grid.iloc[i, 6] = accuracy_score(Y_val, Y_hat)
-            param_grid.iloc[i, 7] = recall_score(Y_val, Y_hat)
-            param_grid.iloc[i, 8] = precision_score(Y_val, Y_hat)
+            param_grid.iloc[i, 5] = accuracy_score(Y_val, Y_hat)
+            param_grid.iloc[i, 6] = recall_score(Y_val, Y_hat)
+            param_grid.iloc[i, 7] = precision_score(Y_val, Y_hat)
 
         return param_grid
 

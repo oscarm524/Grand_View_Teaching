@@ -176,38 +176,26 @@ def Classifier(X_train, Y_train, X_val, Y_val, model):
 
         param_grid = expand_grid(param_grid)
 
-        ## Adding evaluation <-------------------- I'm here
+        ## Adding evaluation 
         param_grid['evaluation'] = np.nan
 
         for i in range(param_grid.shape[0]):
 
             ## Fitting the model (using the ith combination of hyper-parameters)
             GB_md = GradientBoostingClassifier(n_estimators = param_grid['n_estimators'][i],
-            learning_rate = param_grid['learning_rate'][i],
-            max_features = param_grid['max_features'][i],
-            max_depth = param_grid['max_depth'][i],
-            min_samples_split = param_grid['min_samples_split'][i],
-            min_samples_leaf = param_grid['min_samples_leaf'][i])
+                                               learning_rate = param_grid['learning_rate'][i],
+                                               max_features = param_grid['max_features'][i],
+                                               max_depth = param_grid['max_depth'][i],
+                                               min_samples_split = param_grid['min_samples_split'][i],
+                                               min_samples_leaf = param_grid['min_samples_leaf'][i])
 
             GB_md.fit(X_train, Y_train)
 
             ## Predicting on the val dataset
             preds = GB_md.predict_proba(X_val)[:, 1]
 
-            ## Extracting False-Positive, True-Positive and optimal cutoff
-            False_Positive_Rate, True_Positive_Rate, cutoff = roc_curve(Y_val, preds)
-
-            ## Finding optimal cutoff (the one that maximizes True-Positive and minimizes False-Positive)
-            to_select = np.argmax(True_Positive_Rate - False_Positive_Rate)
-            opt_cutoff = cutoff[to_select]
-
-            ## Changing to 0-1
-            Y_hat = np.where(preds <= opt_cutoff, 0, 1)
-
-            ## Computing accuracy and recall
-            param_grid.iloc[i, 6] = opt_cutoff
-            param_grid.iloc[i, 7] = accuracy_score(Y_val, Y_hat)
-            param_grid.iloc[i, 8] = recall_score(Y_val, Y_hat, average = 'macro')
+            ## Computing prediction evaluation (based on 2014 dmc)
+            param_grid.iloc[i, 6] = np.sum(abs(Y_val - preds))
 
         return param_grid
 

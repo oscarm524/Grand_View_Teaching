@@ -44,7 +44,7 @@ def Classifier(X_train, Y_train, X_test, Y_test, model):
     ###############################################
 
     ## Number of trees in random forest
-    n_estimators = [100, 500, 1000, 1500, 2000]
+    n_estimators = [100, 500, 1000]
 
     ## Number of features to consider at every split
     max_features = [3, 5, 7]
@@ -72,6 +72,7 @@ def Classifier(X_train, Y_train, X_test, Y_test, model):
     param_grid['cutoff'] = np.nan
     param_grid['accuracy'] = np.nan
     param_grid['recall'] = np.nan
+    param_grid['precision'] = np.nan
 
     for i in range(param_grid.shape[0]):
 
@@ -93,8 +94,8 @@ def Classifier(X_train, Y_train, X_test, Y_test, model):
     ## Computing accuracy and recall
     param_grid.iloc[i, 5] = opt_cutoff
     param_grid.iloc[i, 6] = accuracy_score(Y_test, Y_hat)
-    param_grid.iloc[i, 7] = recall_score(Y_test, Y_hat, average = 'macro')
-    param_grid.iloc[i, 8] = precision_score(Y_test, Y_hat, average = 'macro')
+    param_grid.iloc[i, 7] = recall_score(Y_test, Y_hat)
+    param_grid.iloc[i, 8] = precision_score(Y_test, Y_hat)
 
     return param_grid
 

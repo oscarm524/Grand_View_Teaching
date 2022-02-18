@@ -219,47 +219,30 @@ def Classifier(X_train, Y_train, X_val, Y_val, model):
         ## Gamma
         gamma = [0.001, 0.01, 0.1, 1]
 
-        ## Defining cutoffs values
-        cutoffs = [round(x, 2) for x in np.linspace(start = 0.1, stop = 0.5, num = 5)]
-
         ## Creating the dictionary of hyper-parameters
         param_grid = {'kernel': kernel,
-        'C': C,
-        'gamma': gamma}
+                      'C': C,
+                      'gamma': gamma}
 
         param_grid = expand_grid(param_grid)
 
-        ## Adding accuracy and recall columns
-        param_grid['cutoff'] = np.nan
-        param_grid['accuracy'] = np.nan
-        param_grid['recall'] = np.nan
+        ## Adding evaluation 
+        param_grid['evaluation'] = np.nan
 
         for i in range(param_grid.shape[0]):
 
             ## Fitting the model (using the ith combination of hyper-parameters)
             SVM_md = SVC(kernel = param_grid['kernel'][i],
-            C = param_grid['C'][i],
-            gamma = param_grid['gamma'][i],
-            probability = True)
+                         C = param_grid['C'][i],
+                         gamma = param_grid['gamma'][i],
+                         probability = True)
 
             SVM_md.fit(X_train, Y_train)
 
             ## Predicting on the val dataset
             preds = SVM_md.predict_proba(X_val)[:, 1]
 
-            ## Extracting False-Positive, True-Positive and optimal cutoff
-            False_Positive_Rate, True_Positive_Rate, cutoff = roc_curve(Y_val, preds)
-
-            ## Finding optimal cutoff (the one that maximizes True-Positive and minimizes False-Positive)
-            to_select = np.argmax(True_Positive_Rate - False_Positive_Rate)
-            opt_cutoff = cutoff[to_select]
-
-            ## Changing to 0-1
-            Y_hat = np.where(preds <= opt_cutoff, 0, 1)
-
-            ## Computing accuracy and recall
-            param_grid.iloc[i, 3] = opt_cutoff
-            param_grid.iloc[i, 4] = accuracy_score(Y_val, Y_hat)
-            param_grid.iloc[i, 5] = recall_score(Y_val, Y_hat, average = 'macro')
-
+            ## Computing prediction evaluation (based on 2014 dmc)
+            param_grid.iloc[i, 3] = np.sum(abs(Y_val - preds))
+            
         return param_grid

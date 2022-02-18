@@ -47,7 +47,7 @@ def Classifier(X_train, Y_train, X_val, Y_val, model):
         n_estimators = [100, 500, 1000]
 
         ## Number of features to consider at every split
-        max_features = [3, 5, 7]
+        max_features = [3, 5]
 
         ## Maximum number of levels in tree
         max_depth = [5, 7, 10]

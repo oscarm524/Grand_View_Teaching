@@ -74,7 +74,7 @@ def Classifier(X_train, Y_train, X_val, Y_val, model):
         param_grid['precision'] = np.nan
 
         for i in range(param_grid.shape[0]):
-        
+            print('Working on job ', i, ' out of ', param_grid.shape[0])
             ## Fitting the model (using the ith combination of hyper-parameters)
             RF_md = RandomForestClassifier(n_estimators = param_grid['n_estimators'][i],
                                            max_features = param_grid['max_features'][i],

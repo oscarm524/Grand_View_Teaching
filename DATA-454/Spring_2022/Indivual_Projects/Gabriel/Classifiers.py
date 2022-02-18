@@ -130,7 +130,7 @@ def Classifier(X_train, Y_train, X_val, Y_val, model):
         param_grid = expand_grid(param_grid)
 
         ## Adding accuracy and recall columns
-        param_grid['cutoff'] np.nan
+        param_grid['cutoff'] = np.nan
         param_grid['accuracy'] = np.nan
         param_grid['recall'] = np.nan
 
@@ -206,7 +206,7 @@ def Classifier(X_train, Y_train, X_val, Y_val, model):
         param_grid = expand_grid(param_grid)
 
         ## Adding accuracy and recall columns
-        param_grid['cutoff'] np.nan
+        param_grid['cutoff'] = np.nan
         param_grid['accuracy'] = np.nan
         param_grid['recall'] = np.nan
 
@@ -273,7 +273,7 @@ def Classifier(X_train, Y_train, X_val, Y_val, model):
         param_grid = expand_grid(param_grid)
 
         ## Adding accuracy and recall columns
-        param_grid['cutoff'] np.nan
+        param_grid['cutoff'] = np.nan
         param_grid['accuracy'] = np.nan
         param_grid['recall'] = np.nan
 

@@ -166,19 +166,11 @@ def Classifier(X_train, Y_train, X_val, Y_val, model):
         ## Maximum number of levels in tree
         max_depth = [3, 5]
 
-        ## Minimum number of samples required to split a node
-        min_samples_split = [10, 15]
-
-        ## Minimum number of samples required at each leaf node
-        min_samples_leaf = [5, 7]
-
         ## Creating the dictionary of hyper-parameters
         param_grid = {'n_estimators': n_estimators,
                       'learning_rate': learning_rate,
                       'max_features': max_features,
-                      'max_depth': max_depth,
-                      'min_samples_split': min_samples_split,
-                      'min_samples_leaf': min_samples_leaf}
+                      'max_depth': max_depth}
 
         param_grid = expand_grid(param_grid)
 
@@ -191,9 +183,8 @@ def Classifier(X_train, Y_train, X_val, Y_val, model):
             GB_md = GradientBoostingClassifier(n_estimators = param_grid['n_estimators'][i],
                                                learning_rate = param_grid['learning_rate'][i],
                                                max_features = param_grid['max_features'][i],
-                                               max_depth = param_grid['max_depth'][i],
-                                               min_samples_split = param_grid['min_samples_split'][i],
-                                               min_samples_leaf = param_grid['min_samples_leaf'][i])
+                                               max_depth = param_grid['max_depth'][i])
+                                               
 
             GB_md.fit(X_train, Y_train)
 
@@ -201,7 +192,7 @@ def Classifier(X_train, Y_train, X_val, Y_val, model):
             preds = GB_md.predict_proba(X_val)[:, 1]
 
             ## Computing prediction evaluation (based on 2014 dmc)
-            param_grid.iloc[i, 6] = np.sum(abs(Y_val - preds))
+            param_grid.iloc[i, 4] = np.sum(abs(Y_val - preds))
 
         return param_grid
 

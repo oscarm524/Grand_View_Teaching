@@ -85,7 +85,7 @@ def Classifier(X_train, Y_train, X_val, Y_val, model):
             ## Predicting on the val dataset
             preds = RF_md.predict_proba(X_val)[:, 1]
             
-            ## Computing prediction evaluation (based on 2014 dmc)
+            ## Computing prediction evaluation (based on 2013/2014 dmc evaluation)
             param_grid.iloc[i, 5] = np.sum(abs(Y_val - preds))
 
         return param_grid
@@ -138,7 +138,7 @@ def Classifier(X_train, Y_train, X_val, Y_val, model):
             ## Predicting on the val dataset
             preds = Ada_md.predict_proba(X_val)[:, 1]
 
-            ## Computing prediction evaluation (based on 2014 dmc)
+            ## Computing prediction evaluation (based on 2013/2014 dmc evaluation)
             param_grid.iloc[i, 4] = np.sum(abs(Y_val - preds))
             
         return param_grid
@@ -191,7 +191,7 @@ def Classifier(X_train, Y_train, X_val, Y_val, model):
             ## Predicting on the val dataset
             preds = GB_md.predict_proba(X_val)[:, 1]
 
-            ## Computing prediction evaluation (based on 2014 dmc)
+            ## Computing prediction evaluation (based on 2013/2014 dmc evaluation)
             param_grid.iloc[i, 4] = np.sum(abs(Y_val - preds))
 
         return param_grid
@@ -239,7 +239,7 @@ def Classifier(X_train, Y_train, X_val, Y_val, model):
             ## Predicting on the val dataset
             preds = SVM_md.predict_proba(X_val)[:, 1]
 
-            ## Computing prediction evaluation (based on 2014 dmc)
+            ## Computing prediction evaluation (based on 2013/2014 dmc evaluation)
             param_grid.iloc[i, 3] = np.sum(abs(Y_val - preds))
             
         return param_grid

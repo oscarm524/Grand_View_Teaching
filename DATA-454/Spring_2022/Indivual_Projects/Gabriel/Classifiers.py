@@ -122,17 +122,22 @@ def Classifier(X_train, Y_train, X_val, Y_val, model):
         param_grid = expand_grid(param_grid)
 
         ## Adding evaluation
-        param_grid['evaluation'] = np.nan
+        param_grid['evaluation'] = np.nan; print(param_grid.head())
 
         for i in range(param_grid.shape[0]):
             print('Working on job', i + 1, 'out of ', param_grid.shape[0])
             ## Fitting the model (using the ith combination of hyper-parameters)
-            Ada_md = AdaBoostClassifier(base_estimator = DecisionTreeClassifier(
-                                        max_features = param_grid['max_features'], 
-                                        max_depth = param_grid['max_depth'][i]),
-                                        n_estimators = param_grid['n_estimators'][i],
+#             Ada_md = AdaBoostClassifier(base_estimator = DecisionTreeClassifier(
+#                                         max_features = param_grid['max_features'], 
+#                                         max_depth = param_grid['max_depth'][i]),
+#                                         n_estimators = param_grid['n_estimators'][i],
+#                                         learning_rate = param_grid['learning_rate'][i])
+
+            Ada_md = AdaBoostClassifier(n_estimators = param_grid['n_estimators'][i],
                                         learning_rate = param_grid['learning_rate'][i])
 
+
+            
             Ada_md.fit(X_train, Y_train)
 
             ## Predicting on the val dataset

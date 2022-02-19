@@ -122,7 +122,7 @@ def Classifier(X_train, Y_train, X_val, Y_val, model):
         param_grid = expand_grid(param_grid)
 
         ## Adding evaluation
-        param_grid['evaluation'] = np.nan; print(param_grid.head())
+        param_grid['evaluation'] = np.nan
 
         for i in range(param_grid.shape[0]):
             print('Working on job', i + 1, 'out of ', param_grid.shape[0])

@@ -17,7 +17,7 @@ def expand_grid(dictionary):
     return pd.DataFrame([row for row in product(*dictionary.values())], columns = dictionary.keys())
 
 
-def Classifier(X_train, Y_train, X_val, Y_val, model):
+def Classifier_Ashlyn(X_train, Y_train, X_val, Y_val, model):
 
     """
 

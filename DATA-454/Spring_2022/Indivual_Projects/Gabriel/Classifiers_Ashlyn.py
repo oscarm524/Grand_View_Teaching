@@ -68,7 +68,7 @@ def Classifier_Ashlyn(X_train, Y_train, X_val, Y_val, model):
 
         param_grid = expand_grid(param_grid)
 
-        ## Adding accuracy and recall columns
+        ## Adding cutoff and points columns
         param_grid['cutoff'] = np.nan
         param_grid['points'] = np.nan
 
@@ -124,8 +124,9 @@ def Classifier_Ashlyn(X_train, Y_train, X_val, Y_val, model):
 
         param_grid = expand_grid(param_grid)
 
-        ## Adding evaluation
-        param_grid['evaluation'] = np.nan
+        ## Adding cutoff and points columns
+        param_grid['cutoff'] = np.nan
+        param_grid['points'] = np.nan
 
         for i in range(param_grid.shape[0]):
             print('Working on job', i + 1, 'out of ', param_grid.shape[0])
@@ -141,8 +142,10 @@ def Classifier_Ashlyn(X_train, Y_train, X_val, Y_val, model):
             ## Predicting on the val dataset
             preds = Ada_md.predict_proba(X_val)[:, 1]
 
-            ## Computing prediction evaluation (based on 2013/2014 dmc evaluation)
-            param_grid.iloc[i, 4] = np.sum(abs(Y_val - preds))
+            ## Computing prediction evaluation (based on 2010 dmc evaluation)
+            opt_cutoff, points = dmc2010_optimal_cutoff(Y_val, preds)
+            param_grid.iloc[i, 4] = opt_cutoff
+            param_grid.iloc[i, 5] = points
             
         return param_grid
 
@@ -177,8 +180,9 @@ def Classifier_Ashlyn(X_train, Y_train, X_val, Y_val, model):
 
         param_grid = expand_grid(param_grid)
 
-        ## Adding evaluation 
-        param_grid['evaluation'] = np.nan
+        ## Adding cutoff and points columns
+        param_grid['cutoff'] = np.nan
+        param_grid['points'] = np.nan
 
         for i in range(param_grid.shape[0]):
             print('Working on job', i + 1, 'out of ', param_grid.shape[0])
@@ -194,8 +198,10 @@ def Classifier_Ashlyn(X_train, Y_train, X_val, Y_val, model):
             ## Predicting on the val dataset
             preds = GB_md.predict_proba(X_val)[:, 1]
 
-            ## Computing prediction evaluation (based on 2013/2014 dmc evaluation)
-            param_grid.iloc[i, 4] = np.sum(abs(Y_val - preds))
+            ## Computing prediction evaluation (based on 2010 dmc evaluation)
+            opt_cutoff, points = dmc2010_optimal_cutoff(Y_val, preds)
+            param_grid.iloc[i, 4] = opt_cutoff
+            param_grid.iloc[i, 5] = points
 
         return param_grid
 
@@ -226,8 +232,9 @@ def Classifier_Ashlyn(X_train, Y_train, X_val, Y_val, model):
 
         param_grid = expand_grid(param_grid)
 
-        ## Adding evaluation 
-        param_grid['evaluation'] = np.nan
+        ## Adding cutoff and points columns
+        param_grid['cutoff'] = np.nan
+        param_grid['points'] = np.nan
 
         for i in range(param_grid.shape[0]):
             print('Working on job', i + 1, 'out of ', param_grid.shape[0])
@@ -242,12 +249,16 @@ def Classifier_Ashlyn(X_train, Y_train, X_val, Y_val, model):
             ## Predicting on the val dataset
             preds = SVM_md.predict_proba(X_val)[:, 1]
 
-            ## Computing prediction evaluation (based on 2013/2014 dmc evaluation)
-            param_grid.iloc[i, 3] = np.sum(abs(Y_val - preds))
+            ## Computing prediction evaluation (based on 2010 dmc evaluation)
+            opt_cutoff, points = dmc2010_optimal_cutoff(Y_val, preds)
+            param_grid.iloc[i, 3] = opt_cutoff
+            param_grid.iloc[i, 4] = points
+            
             
         return param_grid
     
     
+
 def dmc2010_optimal_cutoff(Y_true, Y_pred):
     
     ## Defining cutoff values in a data-frame

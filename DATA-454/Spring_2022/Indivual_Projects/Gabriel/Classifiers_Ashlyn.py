@@ -250,5 +250,12 @@ def Classifier_Ashlyn(X_train, Y_train, X_val, Y_val, model):
 def dmc2010_optimal_cutoff(Y_true, Y_pred):
     
     ## Defining cutoff values 
-    cutoffs = np.linspace()
+    cutoffs = np.round(np.linspace(0.05, 0.95, num = 40, endpoint = True), 2)
+    
+    for i in range(0, len(cutoffs)):
+        
+        ## Changing likelihoods to labels
+        Y_pred_lab = np.where(Y_pred < cutoffs[i], 0, 1)
+        
+        ## Computing confusion matrix and scoring form dmc-2010
     

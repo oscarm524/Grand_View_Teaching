@@ -249,4 +249,6 @@ def Classifier_Ashlyn(X_train, Y_train, X_val, Y_val, model):
     
 def dmc2010_optimal_cutoff(Y_true, Y_pred):
     
+    ## Defining cutoff values 
+    cutoffs = np.linspace()
     

@@ -73,7 +73,7 @@ def Classifier_Ashlyn(X_train, Y_train, X_val, Y_val, model):
         param_grid['points'] = np.nan
 
         for i in range(param_grid.shape[0]):
-            print('Working on job', i + 1, 'out of ', param_grid.shape[0])
+            print('Working on job', i + 1, 'out of', param_grid.shape[0])
             ## Fitting the model (using the ith combination of hyper-parameters)
             RF_md = RandomForestClassifier(n_estimators = param_grid['n_estimators'][i],
                                            max_features = param_grid['max_features'][i],
@@ -129,7 +129,7 @@ def Classifier_Ashlyn(X_train, Y_train, X_val, Y_val, model):
         param_grid['points'] = np.nan
 
         for i in range(param_grid.shape[0]):
-            print('Working on job', i + 1, 'out of ', param_grid.shape[0])
+            print('Working on job', i + 1, 'out of', param_grid.shape[0])
             ## Fitting the model (using the ith combination of hyper-parameters)
             Ada_md = AdaBoostClassifier(base_estimator = DecisionTreeClassifier(
                                         max_features = param_grid['max_features'][i], 
@@ -185,7 +185,7 @@ def Classifier_Ashlyn(X_train, Y_train, X_val, Y_val, model):
         param_grid['points'] = np.nan
 
         for i in range(param_grid.shape[0]):
-            print('Working on job', i + 1, 'out of ', param_grid.shape[0])
+            print('Working on job', i + 1, 'out of', param_grid.shape[0])
             ## Fitting the model (using the ith combination of hyper-parameters)
             GB_md = GradientBoostingClassifier(n_estimators = param_grid['n_estimators'][i],
                                                learning_rate = param_grid['learning_rate'][i],
@@ -237,7 +237,7 @@ def Classifier_Ashlyn(X_train, Y_train, X_val, Y_val, model):
         param_grid['points'] = np.nan
 
         for i in range(param_grid.shape[0]):
-            print('Working on job', i + 1, 'out of ', param_grid.shape[0])
+            print('Working on job', i + 1, 'out of', param_grid.shape[0])
             ## Fitting the model (using the ith combination of hyper-parameters)
             SVM_md = SVC(kernel = param_grid['kernel'][i],
                          C = param_grid['C'][i],

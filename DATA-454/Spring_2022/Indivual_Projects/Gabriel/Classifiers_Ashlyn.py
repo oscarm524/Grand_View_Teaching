@@ -265,7 +265,7 @@ def dmc2010_optimal_cutoff(Y_true, Y_pred):
     results = pd.DataFrame({'cutoffs': np.round(np.linspace(0.05, 0.95, num = 40, endpoint = True), 2)})
     results['points'] = np.nan
     
-    for i in range(0, len(cutoffs)):
+    for i in range(0, results.shape[0]):
         
         ## Changing likelihoods to labels
         Y_pred_lab = np.where(Y_pred < results['cutoffs'][i], 0, 1)

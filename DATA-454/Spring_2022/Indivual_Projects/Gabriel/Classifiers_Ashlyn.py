@@ -69,7 +69,8 @@ def Classifier_Ashlyn(X_train, Y_train, X_val, Y_val, model):
         param_grid = expand_grid(param_grid)
 
         ## Adding accuracy and recall columns
-        param_grid['evaluation'] = np.nan
+        param_grid['cutoff'] = np.nan
+        param_grid['points'] = np.nan
 
         for i in range(param_grid.shape[0]):
             print('Working on job', i + 1, 'out of ', param_grid.shape[0])
@@ -86,9 +87,9 @@ def Classifier_Ashlyn(X_train, Y_train, X_val, Y_val, model):
             preds = RF_md.predict_proba(X_val)[:, 1]
             
             ## Computing prediction evaluation (based on 2010 dmc evaluation)
-            
-            
-            param_grid.iloc[i, 5] = np.sum(abs(Y_val - preds))
+            opt_cutoff, points = dmc2010_optimal_cutoff(Y_val, preds)
+            param_grid.iloc[i, 5] = opt_cutoff
+            param_grid.iloc[i, 6] = points
 
         return param_grid
 

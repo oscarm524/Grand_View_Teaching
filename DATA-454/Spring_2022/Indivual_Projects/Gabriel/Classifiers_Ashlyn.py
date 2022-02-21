@@ -85,7 +85,9 @@ def Classifier_Ashlyn(X_train, Y_train, X_val, Y_val, model):
             ## Predicting on the val dataset
             preds = RF_md.predict_proba(X_val)[:, 1]
             
-            ## Computing prediction evaluation (based on 2013/2014 dmc evaluation)
+            ## Computing prediction evaluation (based on 2010 dmc evaluation)
+            
+            
             param_grid.iloc[i, 5] = np.sum(abs(Y_val - preds))
 
         return param_grid
@@ -243,3 +245,8 @@ def Classifier_Ashlyn(X_train, Y_train, X_val, Y_val, model):
             param_grid.iloc[i, 3] = np.sum(abs(Y_val - preds))
             
         return param_grid
+    
+    
+def dmc2010_optimal_cutoff(Y_true, Y_pred):
+    
+    

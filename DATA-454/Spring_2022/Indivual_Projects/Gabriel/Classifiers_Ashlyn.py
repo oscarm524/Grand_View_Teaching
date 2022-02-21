@@ -8,7 +8,7 @@ from sklearn.model_selection import StratifiedKFold
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier, AdaBoostClassifier
 from sklearn.svm import SVC
-from sklearn.metrics import accuracy_score, recall_score, precision_score
+from sklearn.metrics import confusion_matrix
 from itertools import product
 import precision_recall_cutoff
  
@@ -249,8 +249,8 @@ def Classifier_Ashlyn(X_train, Y_train, X_val, Y_val, model):
     
 def dmc2010_optimal_cutoff(Y_true, Y_pred):
     
-    ## Defining cutoff values 
-    cutoffs = np.round(np.linspace(0.05, 0.95, num = 40, endpoint = True), 2)
+    ## Defining cutoff values in a data-frame
+    results = pd.DataFrame({'cutoffs': np.round(np.linspace(0.05, 0.95, num = 40, endpoint = True), 2)})
     
     for i in range(0, len(cutoffs)):
         
@@ -258,4 +258,8 @@ def dmc2010_optimal_cutoff(Y_true, Y_pred):
         Y_pred_lab = np.where(Y_pred < cutoffs[i], 0, 1)
         
         ## Computing confusion matrix and scoring form dmc-2010
+        X = confusion_matrix(Y_pred_lab, Y_true)
+        performance = 1.5 * X[1, 0] - 5 * X[1, 1]
+        
+        
     

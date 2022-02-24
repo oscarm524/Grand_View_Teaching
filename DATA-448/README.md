@@ -32,6 +32,8 @@ This chapter discusses the two common techniques that are considered in multi-cl
 
 ## Chapter 3: Feature Engineering
 
+This chapter discusses some of the standard techniques in feature engineering. Feature engineering is the act of extracting features from raw data and transforming them into formats that are suitable for the machine learning model. It is a crucial step in the machine learning pipeline, because the right feature can ease the difficulty of modeling, and therefore enable the pipeline to output results of higher quality. The following topics are covered:
+
     - Encoding categorical predictors
     - Engineering numeric predictors
     - Detecting interaction effects

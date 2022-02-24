@@ -47,9 +47,12 @@ This chapter discusses some of the standard techniques in feature engineering. F
     
 ## Chapter 5: Hyper-parameter Tuning
 
+
 ## Chapter 6: Stacking Model Predictions
 
+
 ## Chapter 7: Intro to Deep Learning with TensorFlow
+
 
 ## Chapter 8: AWS SageMaker Best Practices
 

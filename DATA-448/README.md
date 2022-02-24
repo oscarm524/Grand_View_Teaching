@@ -37,12 +37,12 @@ This chapter discusses the two common techniques that are considered in multi-cl
 ## Chapter 4: Feaute Selection    
     
     
-## Chapter 4: Hyper-parameter Tuning
+## Chapter 5: Hyper-parameter Tuning
 
-## Chapter 5: Stacking Model Predictions
+## Chapter 6: Stacking Model Predictions
 
-## Chapter 6: Intro to Deep Learning with TensorFlow
+## Chapter 7: Intro to Deep Learning with TensorFlow
 
-## Chapter 7: AWS SageMaker Best Practices
+## Chapter 8: AWS SageMaker Best Practices
 
 

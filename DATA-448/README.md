@@ -36,7 +36,11 @@ This chapter discusses some of the standard techniques in feature engineering. F
 
     - Encoding categorical predictors
     - Engineering numeric predictors
+        - 1:1 Transformations
     - Detecting interaction effects
+        - Principles in the search of interactions
+        - Tree-based methods
+    - Nonlinear featurization via k-means
     
 ## Chapter 4: Feaute Selection    
     

@@ -34,6 +34,8 @@ This chapter discusses the two common techniques that are considered in multi-cl
     - Engineering numeric predictors
     - Detecting interaction effects
     
+## Chapter 4: Feaute Selection    
+    
     
 ## Chapter 4: Hyper-parameter Tuning
 

@@ -9,6 +9,8 @@ This chapter discusses some of the standard techniques that practitioners consid
     - Performing classification on imbalanced data
     - Model tuning
         - Alternate cutoffs
+            - ROC
+            - Precision and Recall Curve
         - Class weights
     - Sampling methods
         - Under-sampling 

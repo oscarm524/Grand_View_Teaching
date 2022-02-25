@@ -8,11 +8,13 @@ def expand_grid(dictionary):
     return pd.DataFrame([row for row in product(*dictionary.values())], columns = dictionary.keys())
 
 
-def ensemble_gabriel_ricky(test_pred1, test_pred2, test_pred3, Y, to_score1, to_score2, to_score3):
+def ensemble_gabriel_ricky(RF_test_pred, Ada_test_pred, GB_test_pred, Y, RF_pred, Ada_pred, GB_pred):
     
     ## Defining the input variables 
-    X = pd.concat([test_pred1, test_pred2, test_pred3], axis = 1)
-    X_to_score = pd.concat([to_score1, to_score2, to_score3], axis = 1)
+    X = pd.concat([RF_test_pred, Ada_test_pred, GB_test_pred], axis = 1)
+    X.columns = ['RF', 'Ada', 'GB']
+    X_to_score = pd.concat([RF_pred, Ada_pred, GB_pred], axis = 1)
+    X_to_score.column = ['RF', 'Ada', 'GB']
     
     ## Splitting the data 
     X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size = 0.2, stratify = Y)
@@ -56,7 +58,7 @@ def ensemble_gabriel_ricky(test_pred1, test_pred2, test_pred3, Y, to_score1, to_
         RF_md.fit(X_train, Y_train)
 
         ## Predicting on the val dataset
-        preds = RF_md.predict_proba(X_train)[:, 1]
+        preds = RF_md.predict_proba(X_test)[:, 1]
             
         ## Computing prediction evaluation (based on 2013/2014 dmc evaluation)
         param_grid.iloc[i, 5] = np.sum(abs(Y_test - preds))
@@ -77,7 +79,6 @@ def ensemble_gabriel_ricky(test_pred1, test_pred2, test_pred3, Y, to_score1, to_
 
     return preds
 
-    
     
     
     

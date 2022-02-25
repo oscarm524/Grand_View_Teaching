@@ -53,15 +53,29 @@ def ensemble_gabriel_ricky(test_pred1, test_pred2, test_pred3, Y, to_score1, to_
                                        min_samples_split = param_grid['min_samples_split'][i],
                                        min_samples_leaf = param_grid['min_samples_leaf'][i])
 
-        RF_md.fit(X_train, Y)
+        RF_md.fit(X_train, Y_train)
 
         ## Predicting on the val dataset
-        preds = RF_md.predict_proba(X_val)[:, 1]
+        preds = RF_md.predict_proba(X_train)[:, 1]
             
         ## Computing prediction evaluation (based on 2013/2014 dmc evaluation)
-        param_grid.iloc[i, 5] = np.sum(abs(Y_val - preds))
+        param_grid.iloc[i, 5] = np.sum(abs(Y_test - preds))
 
-    return param_grid
+    ## Sorting the results in param_grid 
+    param_grid = param_grid.sort_values(by = 'evaluation').reset_index(drop = True)
+    
+    ## Build the model to score the test
+    RF = RandomForestClassifier(n_estimators = param_grid['n_estimators'][0],
+                                max_features = param_grid['max_features'][0],
+                                max_depth = param_grid['max_depth'][0],
+                                min_samples_split = param_grid['min_samples_split'][0],
+                                min_samples_leaf = param_grid['min_samples_leaf'][0]).fit(X_train, Y_train)
+
+
+    ## Predicting on the dataset to be scored
+    preds = RF.predict_proba(X_to_score)[:, 1]
+
+    return preds
 
     
     

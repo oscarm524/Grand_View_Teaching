@@ -11,11 +11,11 @@ def expand_grid(dictionary):
 def ensemble_gabriel_ricky(test_pred1, test_pred2, test_pred3, Y, to_score1, to_score2, to_score3):
     
     ## Defining the input variables 
-    X_input = pd.concat([test_pred1, test_pred2, test_pred3], axis = 1)
+    X = pd.concat([test_pred1, test_pred2, test_pred3], axis = 1)
     X_to_score = pd.concat([to_score1, to_score2, to_score3], axis = 1)
     
     ## Splitting the data 
-    
+    X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size = 0.2, stratify = Y)
     
     ## Number of trees in random forest
     n_estimators = [100, 300, 500]

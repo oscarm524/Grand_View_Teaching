@@ -118,7 +118,8 @@ def ensemble_ashlyn(RF_test_pred, Ada_test_pred, GB_test_pred, Y, RF_pred, Ada_p
     param_grid = expand_grid(param_grid)
 
     ## Adding evaluation columns
-    param_grid['evaluation'] = np.nan
+    param_grid['cutoff'] = np.nan
+    param_grid['points'] = np.nan
 
     for i in range(param_grid.shape[0]):
         print('Working on job', i + 1, 'out of ', param_grid.shape[0])
@@ -134,11 +135,13 @@ def ensemble_ashlyn(RF_test_pred, Ada_test_pred, GB_test_pred, Y, RF_pred, Ada_p
         ## Predicting on the val dataset
         preds = RF_md.predict_proba(X_test)[:, 1]
             
-        ## Computing prediction evaluation (based on 2013/2014 dmc evaluation)
-        param_grid.iloc[i, 5] = np.sum(abs(Y_test - preds))
-
+        ## Computing prediction evaluation (based on 2010 dmc evaluation)
+        opt_cutoff, points = dmc2010_optimal_cutoff(Y_tes, preds)
+        param_grid.iloc[i, 5] = opt_cutoff
+        param_grid.iloc[i, 6] = points
+        
     ## Sorting the results in param_grid 
-    param_grid = param_grid.sort_values(by = 'evaluation').reset_index(drop = True)
+    param_grid = param_grid.sort_values(by = 'points', ascending = False).reset_index(drop = True)
     
     ## Build the model to score the test
     RF = RandomForestClassifier(n_estimators = param_grid['n_estimators'][0],
@@ -150,5 +153,30 @@ def ensemble_ashlyn(RF_test_pred, Ada_test_pred, GB_test_pred, Y, RF_pred, Ada_p
 
     ## Predicting on the dataset to be scored
     preds = RF.predict_proba(X_to_score)[:, 1]
+    
+    ## Chaning likelihoods to labels
+    pred_labels = np.where(preds < param_grid['cutoff'][0], 0, 1)
 
-    return preds
+    return pred_labels
+
+
+
+def dmc2010_optimal_cutoff(Y_true, Y_pred):
+    
+    ## Defining cutoff values in a data-frame
+    results = pd.DataFrame({'cutoffs': np.round(np.linspace(0.05, 0.95, num = 40, endpoint = True), 2)})
+    results['points'] = np.nan
+    
+    for i in range(0, results.shape[0]):
+        
+        ## Changing likelihoods to labels
+        Y_pred_lab = np.where(Y_pred < results['cutoffs'][i], 0, 1)
+        
+        ## Computing confusion matrix and scoring form dmc-2010
+        X = confusion_matrix(Y_pred_lab, Y_true)
+        results['points'][i] = 1.5 * X[1, 0] - 5 * X[1, 1]
+        
+    ## Sorting results 
+    results = results.sort_values(by = 'points', ascending = False).reset_index(drop = True)
+    
+    return [results['cutoffs'][0], results['points'][0]]

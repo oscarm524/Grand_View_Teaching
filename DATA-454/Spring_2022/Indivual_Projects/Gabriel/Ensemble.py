@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 
 
@@ -12,6 +13,8 @@ def ensemble_gabriel_ricky(test_pred1, test_pred2, test_pred3, Y, to_score1, to_
     ## Defining the input variables 
     X_input = pd.concat([test_pred1, test_pred2, test_pred3], axis = 1)
     X_to_score = pd.concat([to_score1, to_score2, to_score3], axis = 1)
+    
+    ## Splitting the data 
     
     
     ## Number of trees in random forest

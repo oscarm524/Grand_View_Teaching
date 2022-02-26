@@ -42,7 +42,7 @@ This chapter discusses some of the standard techniques in feature engineering. F
         - Tree-based methods
     - Nonlinear featurization via k-means
     
-## Chapter 4: Feaute Selection    
+## Chapter 4: Feature Selection    
     
     
 ## Chapter 5: Hyper-parameter Tuning

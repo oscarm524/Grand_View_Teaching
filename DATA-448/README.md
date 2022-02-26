@@ -51,7 +51,7 @@ This chapter discusses some of the standard techniques in feature engineering. F
 ## Chapter 6: Stacking Model Predictions
 
 
-## Chapter 7: Stacking Model Predictions
+## Chapter 7: Gradient Boosting with XGBoost
 
 
 ## Chapter 8: Intro to Deep Learning with TensorFlow

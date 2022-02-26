@@ -51,9 +51,12 @@ This chapter discusses some of the standard techniques in feature engineering. F
 ## Chapter 6: Stacking Model Predictions
 
 
-## Chapter 7: Intro to Deep Learning with TensorFlow
+## Chapter 7: Stacking Model Predictions
 
 
-## Chapter 8: AWS SageMaker Best Practices
+## Chapter 8: Intro to Deep Learning with TensorFlow
+
+
+## Chapter 9: AWS SageMaker Best Practices
 
 

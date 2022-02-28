@@ -62,7 +62,7 @@ def ensemble_gabriel_ricky(RF_test_pred, Ada_test_pred, GB_test_pred, Y, RF_pred
         preds = RF_md.predict_proba(X_test)[:, 1]
             
         ## Computing prediction evaluation (based on 2013/2014 dmc evaluation)
-        param_grid.iloc[i, 5] = np.sum(abs(Y_test - preds))
+        param_grid.iloc[i, 5] = np.sum(abs(Y - preds))
 
     ## Sorting the results in param_grid 
     param_grid = param_grid.sort_values(by = 'evaluation').reset_index(drop = True)
@@ -137,7 +137,7 @@ def ensemble_ashlyn(RF_test_pred, Ada_test_pred, GB_test_pred, Y, RF_pred, Ada_p
         preds = RF_md.predict_proba(X_test)[:, 1]
             
         ## Computing prediction evaluation (based on 2010 dmc evaluation)
-        opt_cutoff, points = dmc2010_optimal_cutoff(Y_tes, preds)
+        opt_cutoff, points = dmc2010_optimal_cutoff(Y, preds)
         param_grid.iloc[i, 5] = opt_cutoff
         param_grid.iloc[i, 6] = points
         

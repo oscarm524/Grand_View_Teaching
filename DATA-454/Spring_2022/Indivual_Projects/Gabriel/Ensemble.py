@@ -24,7 +24,7 @@ def ensemble_gabriel_ricky(RF_test_pred, Ada_test_pred, GB_test_pred, Y, RF_pred
     n_estimators = [100, 300, 500]
 
     ## Number of features to consider at every split
-    max_features = [3, 5]
+    max_features = [2, 3]
 
     ## Maximum number of levels in tree
     max_depth = [3, 5]
@@ -98,7 +98,7 @@ def ensemble_ashlyn(RF_test_pred, Ada_test_pred, GB_test_pred, Y, RF_pred, Ada_p
     n_estimators = [100, 300, 500]
 
     ## Number of features to consider at every split
-    max_features = [3, 5]
+    max_features = [2, 3]
 
     ## Maximum number of levels in tree
     max_depth = [3, 5]

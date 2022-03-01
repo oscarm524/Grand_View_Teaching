@@ -62,9 +62,7 @@ This chapter discusses some of the standard techniques in hyper-parameter tuning
     - Hyper-parameter optimization
         - Grid search 
         - Random search 
-    
-
-
+        
 
 ## Chapter 6: Stacking Model Predictions
 

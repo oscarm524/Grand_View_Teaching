@@ -55,6 +55,10 @@ This chapter discusses some of the standard techniques in feature selection. Fea
     
 ## Chapter 5: Hyper-parameter Tuning
 
+This chapter discusses some of the standard techniques in hyper-parameter tuning.
+
+
+
 
 ## Chapter 6: Stacking Model Predictions
 

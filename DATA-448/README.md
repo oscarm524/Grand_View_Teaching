@@ -59,6 +59,9 @@ This chapter discusses some of the standard techniques in hyper-parameter tuning
 
     - The need of hyper-parameter optimization
     - Standard algorithms and their hyper-parameters
+    - Hyper-parameter optimization
+        - Grid search 
+        - Random search 
     
 
 

@@ -55,7 +55,9 @@ This chapter discusses some of the standard techniques in feature selection. Fea
     
 ## Chapter 5: Hyper-parameter Tuning
 
-This chapter discusses some of the standard techniques in hyper-parameter tuning.
+This chapter discusses some of the standard techniques in hyper-parameter tuning. Choosing the right hyper-parameters when building a machine learning model is one of the biggest problems faced by data science practitioners. We start this chapter by defining parameters and hyper-parameters and their difference. Also, we discuss how hyper-parameters affect the overall process of model building. The following topics are covered:
+
+    - The need of hyper-parameter optimization
 
 
 

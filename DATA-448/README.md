@@ -68,7 +68,9 @@ This chapter discusses some of the standard techniques in hyper-parameter tuning
 
 This chapter discusses the idea behind stacking model predictions. Stacking or Stacked Generalization is an ensemble machine learning algorithm. The benefit of stacking is that it can harness the capabilities of a range of well-performing models on a classification or regression task and make predictions that have better performance than any single model in the ensemble. The following topics are covered:
 
-
+    - Stacked generalization
+    - Implementing stacked generalization by combining predictions
+    - Homogeneous ensembles
 
 
 ## Chapter 7: Gradient Boosting with XGBoost

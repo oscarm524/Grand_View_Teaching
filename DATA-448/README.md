@@ -44,7 +44,7 @@ This chapter discusses some of the standard techniques in feature engineering. F
     
 ## Chapter 4: Feature Selection    
 
-Feature engineering is a important component of predictive analytics. And the hope is that some of the newly engineered features capture a predictive relationship with the outcome. But some may not be relevant to the outcome. Moreover, some of the original predictors also may not contain predictive information. For a number of models, predictive performance is degraded as the number of uninformative predictors increases. Therefore, there is a genuine need to appropriately select predictors for modeling. The following topidcs are covered:
+This chapter discusses some of the standard techniques in feature selection. Feature engineering is a important component of predictive analytics. And the hope is that some of the newly engineered features capture a predictive relationship with the outcome. But some may not be relevant to the outcome. Moreover, some of the original predictors also may not contain predictive information. For a number of models, predictive performance is degraded as the number of uninformative predictors increases. Therefore, there is a genuine need to appropriately select predictors for modeling. The following topidcs are covered:
 
     - Goals of feature selection
     - Effect of irrelevant features

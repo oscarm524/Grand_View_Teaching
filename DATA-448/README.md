@@ -66,6 +66,8 @@ This chapter discusses some of the standard techniques in hyper-parameter tuning
 
 ## Chapter 6: Stacking Model Predictions
 
+This chapter discusses the idea behind stacking model predictions. 
+
 
 ## Chapter 7: Gradient Boosting with XGBoost
 

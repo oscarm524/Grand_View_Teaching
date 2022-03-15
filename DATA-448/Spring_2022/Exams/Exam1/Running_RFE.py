@@ -86,4 +86,4 @@ feature_selection.columns = X_train.columns
 
 ## Sorting based on average importance
 feature_selection = feature_selection.apply(np.mean, axis = 0).sort_values(ascending = False)
-feature_selection.to_csv('features_rankings.csv', index = False)
+feature_selection.to_csv('features_rankings.csv', index = True)

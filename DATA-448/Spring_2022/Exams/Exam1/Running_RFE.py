@@ -72,7 +72,7 @@ X_test['interaction_5'] = X_test['PAY_2'] * X_test['PAY_3']
 ## Defining list to store results
 feature_selection = list()
 
-for i in range(0, 5):
+for i in range(0, 2):
 #     print(i)
     ## Running RFE
     RF_auto_features = RFECV(estimator = RandomForestClassifier(n_estimators = 500, max_depth = 3), step = 1, min_features_to_select = 2, cv = 3).fit(X_train, Y_train)
@@ -81,7 +81,7 @@ for i in range(0, 5):
     feature_selection.append(RF_auto_features.support_)
     
 ## Changing to data-frame
-feature_selection = pd.DataFame(feature_selection)
+feature_selection = pd.DataFrame(feature_selection)
 feature_selection.columns = X_train.columns
 
 ## Sorting based on average importance

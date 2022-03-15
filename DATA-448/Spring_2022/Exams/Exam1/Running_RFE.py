@@ -72,8 +72,8 @@ X_test['interaction_5'] = X_test['PAY_2'] * X_test['PAY_3']
 ## Defining list to store results
 feature_selection = list()
 
-for i in range(0, 100):
-    print(i)
+for i in range(0, 5):
+#     print(i)
     ## Running RFE
     RF_auto_features = RFECV(estimator = RandomForestClassifier(n_estimators = 500, max_depth = 3), step = 1, min_features_to_select = 2, cv = 3).fit(X_train, Y_train)
 

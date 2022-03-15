@@ -52,3 +52,19 @@ X_train = pd.concat([X_train.drop(columns = 'MARRIAGE', axis = 1), pd.get_dummie
 X_test = pd.concat([X_test.drop(columns = 'SEX', axis = 1), pd.get_dummies(X_test['SEX'])], axis = 1)
 X_test = pd.concat([X_test.drop(columns = 'EDUCATION', axis = 1), pd.get_dummies(X_test['EDUCATION'])], axis = 1)
 X_test = pd.concat([X_test.drop(columns = 'MARRIAGE', axis = 1), pd.get_dummies(X_test['MARRIAGE'])], axis = 1)
+
+## Engineering features from decision tree
+X_train['interaction_1'] = np.where((X_train['PAY_0'] <= 1.5) & (X_train['PAY_2'] <= 1.5) & (X_train['PAY_AMT3'] > 395), 1, 0)
+X_train['interaction_2'] = np.where((X_train['PAY_0'] <= 1.5) & (X_train['PAY_2'] <= 1.5) & (X_train['PAY_AMT3'] < 395), 1, 0)
+
+X_test['interaction_1'] = np.where((X_test['PAY_0'] <= 1.5) & (X_test['PAY_2'] <= 1.5) & (X_test['PAY_AMT3'] > 395), 1, 0)
+X_test['interaction_2'] = np.where((X_test['PAY_0'] <= 1.5) & (X_test['PAY_2'] <= 1.5) & (X_test['PAY_AMT3'] < 395), 1, 0)
+
+## Computing strong heredeity interactions
+X_train['interaction_3'] = X_train['PAY_0'] * X_train['PAY_2'] 
+X_train['interaction_4'] = X_train['PAY_0'] * X_train['PAY_3']
+X_train['interaction_5'] = X_train['PAY_2'] * X_train['PAY_3']
+
+X_test['interaction_3'] = X_test['PAY_0'] * X_test['PAY_2'] 
+X_test['interaction_4'] = X_test['PAY_0'] * X_test['PAY_3']
+X_test['interaction_5'] = X_test['PAY_2'] * X_test['PAY_3']

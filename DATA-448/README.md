@@ -75,7 +75,7 @@ This chapter discusses the idea behind stacking model predictions. Stacking or S
 
 ## Chapter 7: Gradient Boosting with XGBoost
 
-This chapter discusses the idea and features of XGBoost.
+This chapter discusses the idea and features of XGBoost. Decision trees produced machine learning models that were too accurate and failed to generalize well to new data. Ensemble methods proved more efective by combining many decision trees via bagging and boosting. A leading algorithm that emerged from the tree ensemble trajectory was gradient boosting.
 
 
 ## Chapter 8: Intro to Deep Learning with TensorFlow

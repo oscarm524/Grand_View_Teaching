@@ -78,7 +78,11 @@ This chapter discusses the idea behind stacking model predictions. Stacking or S
 This chapter discusses the idea and features of XGBoost. Decision trees produced machine learning models that were too accurate and failed to generalize well to new data. Ensemble methods proved more efective by combining many decision trees via bagging and boosting. A leading algorithm that emerged from the tree ensemble trajectory was gradient boosting. The consistency, power, and outstanding results of gradient boosting convinced Tianqi Chen from the University of Washington to enhance its capabilities. He called the new algorithm XGBoost, short for Extreme Gradient Boosting. Chen's new form of gradient boosting included
 built-in regularization and impressive gains in speed. The following topics are covered:
 
-
+    - XGBoost features
+    - Learning objective
+    - Building XGBoost models
+    - XGBoost hyper-parameters
+    - XGBoost alternative base learners
 
 
 ## Chapter 8: Intro to Deep Learning with TensorFlow

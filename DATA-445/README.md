@@ -85,8 +85,3 @@ This chapter discusses some of the standard clustering algorithms. It also discu
         - Fuzzy C-means 
     - Spectral clustering
 
-## Chapter 8
-
-## Chapter 9
-
-## Chapter 10

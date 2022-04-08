@@ -1,4 +1,4 @@
-# DATA-448: Predictive Analytics
+# DATA-448: Predictive Analytics 
 
 In this repository, I store all the code presendted in the lecture notes of DATA-448.
 
@@ -84,10 +84,5 @@ built-in regularization and impressive gains in speed. The following topics are 
     - XGBoost hyper-parameters
     - XGBoost alternative base learners
 
-
-## Chapter 8: Intro to Deep Learning with TensorFlow
-
-
-## Chapter 9: AWS SageMaker Best Practices
 
 

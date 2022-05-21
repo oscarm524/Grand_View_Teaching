@@ -9,3 +9,16 @@ head(returns)
 plot(returns$Date, returns$Ann_Total_Return, type = 'l', col = 'blue', 
      xlab = 'Date', ylab = 'Annual Total Return (%)')
 grid()
+
+## Let's plot the forecasted total returns 
+plot(returns$Date, returns$Ann_Total_Return, type = 'l', col = 'blue', 
+     xlab = 'Date', ylab = 'Annual Total Return (%)')
+
+## Here we add the forecasted returns
+lines(returns$Date, returns$Ann_Forecast_Total_Return, col = 'orange')
+
+## Here we add the confidence region
+polygon(c(returns$Date, rev(returns$Date)), 
+        c(returns$Up_95_Bound, rev(returns$Low_95_Bound)), 
+        col = '#CCCCCC4D')
+grid()

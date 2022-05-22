@@ -55,4 +55,32 @@ heights = c(65.71, 72.30, 68.31, 67.05, 70.68)
 ## Here we find the five-number summary of heights 
 summary(heights)
 
+## Here we manually create the data
+classes = c('First', 'Second', 'Third', 'Crew')
+passengers = c(325, 285, 706, 885)
+
+## Here we create the bar chart using the barplot function
+barplot(passengers, names.arg = classes, xlab = 'Class', 
+        ylab = 'Passengers')
+
+## Here we create the horizontal bar chart using the barplot function
+barplot(passengers, names.arg = classes, xlab = 'Class', ylab = 'Passengers', 
+        horiz = T)
+
+## Here we manually create the data
+classes = c('First', 'Second', 'Third', 'Crew')
+passengers = c(325, 285, 706, 885)
+
+## Here we compute the percentages associated to each label
+passengers.pct = round(100*passengers / sum(passengers), 1)
+
+## Here we create the labels
+classes = paste0(classes, '-', passengers.pct, '%')
+
+## Here we declare the colors for the slices
+colors = c('gold', 'yellowgreen', 'lightcoral', 'lightskyblue')
+
+## Here we create the pie chart using the pie function
+pie(passengers, labels = classes, col = colors)
+
 

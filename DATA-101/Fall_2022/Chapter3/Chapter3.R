@@ -104,4 +104,24 @@ stock = c(11.88, 6.27, 5.49, 4.81, 4.40, 3.78, 3.44, 3.11, 2.88, 2.68,
 ## the boxplot function   
 boxplot(stock, ylab = 'Stock Prices ($)')    
 
+## Here we create the variables x and y
+x = seq(0, 10, len = 30)
+y = sin(x)
+
+## Here we create the scatter plot between x and y
+plot(x, y, pch = 16)
+grid()
+
+## Here we read the data
+apple = read.csv(file = 'AAPL.csv')
+
+## Here we put the Date variable in the right format
+apple$Date = as.Date(apple$Date, format = '%Y-%m-%d')
+
+## Here we crete the time series plot
+plot(apple$Date, apple$Adj.Close, type = 'l', col = 'skyblue', 
+     lwd = 2, xlab = 'Date', ylab = 'Stock Price ($)')
+grid()
+
+
 

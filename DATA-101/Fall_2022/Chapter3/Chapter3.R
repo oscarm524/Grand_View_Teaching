@@ -43,4 +43,16 @@ var(heights)
 ## Here we find the standard deviation of heights
 sd(heights)
 
+## First we create the a vector that contains the heights
+heights = c(65.71, 72.30, 68.31, 67.05, 70.68)
+
+## Here we find the z scores of heights 
+(heights - mean(heights)) / sd(heights)
+
+## First we create the a vector that contains the heights
+heights = c(65.71, 72.30, 68.31, 67.05, 70.68)
+
+## Here we find the five-number summary of heights 
+summary(heights)
+
 
